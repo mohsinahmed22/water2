@@ -23,7 +23,9 @@ function select_all_records($query, $table){
 }
 
 /* General One Selection*/
-function select_record($query, $table){
+function select_record($table, $id){
+
+//    $db_data = db_query("SELECT * FROM {}"$table);
 
 }
 
