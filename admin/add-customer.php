@@ -13,7 +13,7 @@ $today_date = date("Y-m-d");
 ?>
 <?php
  if(isset($_POST['submit'])){
-     $customer_username = $_POST['customer_username'];
+/*     $customer_username = $_POST['customer_username'];
      $customer_password = $_POST['customer_password'];
      $customer_name = $_POST['customer_name'];
      $customer_address = $_POST['customer_address'];
@@ -25,10 +25,25 @@ $today_date = date("Y-m-d");
      $customer_bottle_rate = $_POST['customer_bottle_rate'];
      $customer_advance = $_POST['customer_advance'];
      $customer_balance = $_POST['customer_balance'];
-     $customer_join_date = $_POST['customer_join_date'];
+     $customer_join_date = $_POST['customer_join_date'];*/
+    $customer_data = array(
+     'customer_username' => $_POST['customer_username'],
+     'customer_password' => $_POST['customer_password'],
+     'customer_name' => $_POST['customer_name'],
+     'customer_address' => $_POST['customer_address'],
+     'customer_email' => $_POST['customer_email'],
+     'customer_phone' => $_POST['customer_phone'],
+     'customer_status' => $_POST['customer_status'],
+     'customer_payment_type' => $_POST['customer_payment_type'],
+     'customer_bottle_qty' => $_POST['customer_bottle_qty'],
+     'customer_bottle_rate' => $_POST['customer_bottle_rate'],
+     'customer_advance' => $_POST['customer_advance'],
+     'customer_balance' => $_POST['customer_balance'],
+     'customer_join_date' => $_POST['customer_join_date'],
+    );
 
-
-
+     $new_customer = insert_customer($customer_data);
+     if($new_customer){ header("Location: customers.php");}
 
  }
 
@@ -58,19 +73,19 @@ $today_date = date("Y-m-d");
                         <input type="hidden" name="customer_join_date" value="<?php echo $today_date?>"/>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Status </label>
-                            <input type="radio" class="flat" name="customer_status" id="active" value="Active" checked="" required /> Active
-                            <input type="radio" class="flat" name="customer_status" id="disable" value="Disable" /> Disable
+                            <input type="radio" class="flat" name="customer_status" id="active" value="1" checked="" required /> Active
+                            <input type="radio" class="flat" name="customer_status" id="disable" value="0" /> Disable
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Customer Username <span class="required">*</span></label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                                <input type="text" class="form-control" placeholder="Enter Complete Name" name="customer_username">
+                                <input type="text" class="form-control" placeholder="Enter Complete Name" name="customer_username" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Password</label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                                <input type="password" class="form-control" value="" name="customer_password">
+                                <input type="password" class="form-control" value="" name="customer_password" required>
                             </div>
                         </div>
                     </div>
@@ -88,38 +103,26 @@ $today_date = date("Y-m-d");
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Customer Name <span class="required">*</span></label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" placeholder="Enter Complete Name" name="customer_name">
+                                    <input type="text" class="form-control" placeholder="Enter Complete Name" name="customer_name" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Phone Number <span class="required">*</span></label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <input type="tel" class="form-control" placeholder="Phone" name="customer_phone">
+                                    <input type="tel" class="form-control" placeholder="Phone" name="customer_phone" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Email Address <span class="required">*</span></label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <input type="email" class="form-control" placeholder="Enter Email Address" name="customer_email">
+                                    <input type="email" class="form-control" placeholder="Enter Email Address" name="customer_email" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Address <span class="required">*</span>
                                 </label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <textarea class="form-control" rows="3" placeholder='rows="3"' name="customer_address"></textarea>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Select</label>
-                                <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <select class="form-control">
-                                        <option>Choose option</option>
-                                        <option>Option one</option>
-                                        <option>Option two</option>
-                                        <option>Option three</option>
-                                        <option>Option four</option>
-                                    </select>
+                                    <textarea class="form-control" rows="3" placeholder='rows="3"' name="customer_address" required></textarea>
                                 </div>
                             </div>
 
@@ -146,25 +149,25 @@ $today_date = date("Y-m-d");
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Bottle Qty</label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                                <input type="number" class="form-control" placeholder="Enter Bottle Qty" name="customer_bottle_qty">
+                                <input type="number" class="form-control" placeholder="Enter Bottle Qty" name="customer_bottle_qty" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Bottle Rate <span class="required">*</span></label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                                <input type="number" class="form-control" placeholder="Each Rate" name="customer_bottle_rate">
+                                <input type="number" class="form-control" placeholder="Each Rate" name="customer_bottle_rate" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Advance <span class="required">*</span></label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                                <input type="number" class="form-control" placeholder="" name="customer_advance">
+                                <input type="number" class="form-control" placeholder="" name="customer_advance" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Previous Balance</label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                                <input type="number" class="form-control" placeholder="" name="customer_balance">
+                                <input type="number" class="form-control" placeholder="" name="customer_balance" required>
                             </div>
                         </div>
 

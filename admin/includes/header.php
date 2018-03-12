@@ -4,6 +4,7 @@
  * Date: 3/12/2018
  * Time: 11:59 AM
  */
+ob_start();
 include 'db.php';
 include 'functions.php';
 db_query('SELECT * FR0M customers');
