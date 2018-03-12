@@ -60,7 +60,6 @@ global $connection;
                 {$data['customer_advance']},
                 {$data['customer_balance']}
                 )";
-
      $add_customer = mysqli_escape_string($connection, db_query($query));
      if ($add_customer) {
          return true;
