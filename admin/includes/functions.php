@@ -23,10 +23,12 @@ function select_all_records($query, $table){
 }
 
 /* General One Selection*/
-function select_record($table, $id){
-
+function select_record($table, $column, $id){
+    $select_single_record = db_query("SELECT * FROM $table where  $column = $id");
 //    $db_data = db_query("SELECT * FROM {}"$table);
-
+    if ($select_single_record){
+        return $select_single_record;
+    }
 }
 
 

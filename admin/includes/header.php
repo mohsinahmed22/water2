@@ -25,7 +25,7 @@ db_query('SELECT * FR0M customers');
     <!-- Font Awesome -->
     <link href="assets/css/font-awesome.min.css" rel="stylesheet">
     <link href="assets/css/green.css" rel="stylesheet">
-
+    <link href="assets/css/daterangepicker.css" rel="stylesheet">
     <!-- Custom Theme Style -->
     <link href="assets/css/custom.css" rel="stylesheet">
 </head>
