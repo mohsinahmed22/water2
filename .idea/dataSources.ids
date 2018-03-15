@@ -89,19 +89,19 @@
         <data-type>int(11)|0</data-type>
       </column>
       <column id="37" parent="18" name="customer_balance">
-        <data-type>int(11)|0</data-type>
+        <data-type>float(8,2)|0</data-type>
       </column>
       <column id="38" parent="18" name="billing_date">
         <data-type>date|0</data-type>
       </column>
       <column id="39" parent="18" name="billing_amount_due">
-        <data-type>int(11)|0</data-type>
+        <data-type>float(8,2)|0</data-type>
       </column>
       <column id="40" parent="18" name="billing_amount_paid">
-        <data-type>int(11)|0</data-type>
+        <data-type>float(8,2)|0</data-type>
       </column>
       <column id="41" parent="18" name="billing_amount_balance">
-        <data-type>int(11)|0</data-type>
+        <data-type>float(8,2)|0</data-type>
       </column>
       <column id="42" parent="18" name="billing_amount_payment_type">
         <data-type>varchar(255)|0</data-type>
@@ -110,46 +110,36 @@
         <data-type>int(11)|0</data-type>
       </column>
       <column id="44" parent="18" name="billing_bottle_rate">
-        <data-type>int(11)|0</data-type>
+        <data-type>float(8,2)|0</data-type>
       </column>
-      <index id="45" parent="18" name="billing_customers_customer_id_fk">
-        <columns>customer_id</columns>
-        <desc-columns></desc-columns>
-      </index>
-      <key id="46" parent="18" name="PRIMARY">
+      <key id="45" parent="18" name="PRIMARY">
         <columns>billing_id</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="47" parent="18" name="billing_customers_customer_id_fk">
-        <columns>customer_id</columns>
-        <ref-key>~.customers.PRIMARY</ref-key>
-        <cascade-update-rule>restrict</cascade-update-rule>
-        <cascade-delete-rule>restrict</cascade-delete-rule>
-      </foreign-key>
-      <column id="48" parent="19" name="admin_user_id">
+      <column id="46" parent="19" name="admin_user_id">
         <mandatory>1</mandatory>
         <data-type>int(11)|0</data-type>
         <sequence-identity>1</sequence-identity>
       </column>
-      <column id="49" parent="19" name="admin_user_name">
+      <column id="47" parent="19" name="admin_user_name">
         <data-type>varchar(255)|0</data-type>
       </column>
-      <column id="50" parent="19" name="admin_user_username">
+      <column id="48" parent="19" name="admin_user_username">
         <data-type>varchar(255)|0</data-type>
       </column>
-      <column id="51" parent="19" name="admin_user_password">
+      <column id="49" parent="19" name="admin_user_password">
         <data-type>varchar(255)|0</data-type>
       </column>
-      <column id="52" parent="19" name="admin_user_role">
+      <column id="50" parent="19" name="admin_user_role">
         <data-type>varchar(255)|0</data-type>
       </column>
-      <column id="53" parent="19" name="admin_user_email">
+      <column id="51" parent="19" name="admin_user_email">
         <data-type>varchar(255)|0</data-type>
       </column>
-      <column id="54" parent="19" name="admin_user_status">
+      <column id="52" parent="19" name="admin_user_status">
         <data-type>int(11)|0</data-type>
       </column>
-      <key id="55" parent="19" name="PRIMARY">
+      <key id="53" parent="19" name="PRIMARY">
         <columns>admin_user_id</columns>
         <primary>1</primary>
       </key>

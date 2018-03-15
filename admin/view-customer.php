@@ -27,7 +27,27 @@ if(isset($_GET['view'])){
 
 }
 if(isset($_POST['save_record'])){
+    if($_POST['billing_amount_paid'] < $_POST['billing_amount_due']){
+    $new_balance = $_POST['billing_amount_due'] - $_POST['billing_amount_paid'];
+    }else{
+        $new_balance = 0.00;
+    }
+    $customer_billing =  array(
+        'customer_id' => $_POST['customer_id'],
+        'customer_balance' => $_POST['customer_balance'],
+        'billing_date' => $_POST['billing_date'],
+        'billing_amount_due' => $_POST['billing_amount_due'],
+        'billing_amount_paid' => $_POST['billing_amount_paid'],
+        'billing_amount_balance' => $new_balance,
+        'billing_amount_payment_type' => $_POST['billing_amount_payment_type'],
+        'billing_bottle_rate' => $_POST['billing_bottle_rate'],
+        'billing_bottle_qty' => $_POST['billing_bottle_qty']
+    );
 
+    $add_billing = insert_customer_billing($customer_billing);
+    if($add_billing) {
+        header("Location: view-customer.php?view={$_POST['customer_id']}");
+    }
 }
 ?>
 
@@ -89,8 +109,9 @@ if(isset($_POST['save_record'])){
                     <div class="x_title">
                         <h2>Billing Details <small>(<?php echo $customer_name ?>)</small></h2>
                         <!-- Small modal -->
+                        <?php if($customer_status != 0) {?>
                         <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target=".bs-example-modal-lg">Add New Billing Record</button>
-
+                        <?php }?>
                         <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                                 <form action="view-customer.php" method="post" class="form-horizontal form-label-left" _lpchecked="1">
@@ -102,22 +123,24 @@ if(isset($_POST['save_record'])){
                                     </div>
                                     <div class="modal-body">
                                         <h4>New Billing</h4>
-                                        <p>Payment Type : <strong><?php echo ucfirst($customer_payment_type);?></strong></p>
+                                        <p>Payment Type : <strong><?php echo ucfirst($customer_payment_type);?></strong>
+                                            <input type="hidden" class="form-control" name="billing_amount_payment_type" value="<?php echo ucfirst($customer_payment_type);?>">
+                                        </p>
                                         <hr/>
 
 
                                         <div class="col-sm-6    ">
                                             <div class="form-group">
                                                 <label>Billing Date</label>
-                                                <input type="date" class="form-control" name="billing_date" placeholder="Current Date" disabled="disabled" value="<?php echo $today_date ?>">
+                                                <input type="date" class="form-control" name="billing_date" placeholder="Current Date" value="<?php echo $today_date ?>">
                                             </div>
                                             <div class="form-group">
                                                 <label>Bottle Rate </label>
-                                                <input type="text" class="form-control" name="billing_bottle_qty" placeholder="Bottle Rate" disabled="disabled" value="<?php echo $customer_bottle_rate;?>">
+                                                <input type="text" class="form-control" name="billing_bottle_rate" placeholder="Bottle Rate" value="<?php echo $customer_bottle_rate;?>">
                                             </div>
                                             <div class="form-group">
                                                 <label>Bottle Qty</label>
-                                                <input type="number" class="form-control" name="billing_bottle_rate" placeholder="Bottle Qty" value="<?php echo $customer_bottle_qty;?>">
+                                                <input type="number" class="form-control" name="billing_bottle_qty" placeholder="Bottle Qty" value="<?php echo $customer_bottle_qty;?>">
                                             </div>
 
 
@@ -133,24 +156,30 @@ if(isset($_POST['save_record'])){
                                                     </tr>
                                                     <tr>
                                                         <th>Balance</th>
-                                                        <td>Rs.<?php echo $customer_balance ?></td>
+                                                        <td>Rs.<?php echo $customer_balance ?>
+                                                            <input type="hidden" class="form-control" name="customer_balance" value="<?php echo $customer_balance ?>">
+                                                            <input type="hidden" class="form-control" name="customer_id" value="<?php echo $_GET['view']?>">
+
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                         <th>Total:</th>
-                                                        <td>Rs.<?php echo $grand_total = $subtoatal + $customer_balance?></td>
+                                                        <td>Rs.<?php echo $grand_total = $subtoatal + $customer_balance;?>
+                                                            <input type="hidden" class="form-control" name="billing_amount_due" value="<?php echo $grand_total?>">
+
+                                                        </td>
                                                     </tr>
                                                     </tbody>
                                                 </table>
                                                 <div class="form-group">
-                                                    <label>Amount Paid</label>
-                                                    <input type="text" class="form-control" placeholder="Amount Paid" name="billing_amount_paid" value="<?php echo $grand_total = $subtoatal + $customer_balance?>">
+                                                    <label>Amount Payable</label>
+                                                    <input type="text" id="paid" class="form-control" placeholder="Amount Paid" name="billing_amount_paid" value="<?php echo $grand_total_paid = $subtoatal + $customer_balance?>">
+                                                    <input type="hidden" class="form-control" name="billing_amount_balance" value="0">
                                                 </div>
                                             </div>
                                             <button type="reset" class="btn btn-default pull-right" data-dismiss="modal">Close</button>
                                             <button type="submit" name="save_record" class="btn btn-primary pull-right">Save Billing Record</button>
                                         </div>
-
-
                                     </div>
                                     <div class="modal-footer">
 
@@ -174,28 +203,28 @@ if(isset($_POST['save_record'])){
                                 <th>Date</th>
                                 <th>Bottle Qty</th>
                                 <th>Bottle Rate</th>
-                                <th>Amount Due</th>
                                 <th>Previous Balance</th>
+                                <th>Amount Due</th>
                                 <th>Amount Paid</th>
-                                <th>Amount Balance</th>
+                                <th>New Balance</th>
                             </tr>
                             </thead>
 
 
                             <tbody>
                             <?php
-                                $billing_month = select_all_records('SELECT * FROM', 'billing');
+                                $billing_month = select_customer_record($_GET['view']);
                                 foreach ($billing_month as $record){
                             ?>
                             <tr>
                                 <td><?php echo $record['billing_amount_payment_type']?></td>
-                                <td><?php echo $record['billing_amount_date']?></td>
+                                <td><?php echo $record['billing_date']?></td>
                                 <td><?php echo $record['billing_bottle_qty']?></td>
-                                <td><?php echo $record['billing_bottle_rate']?></td>
-                                <td><?php echo $record['billing_amount_due']?></td>
-                                <td><?php echo $record['billing_amount_balance']?></td>
-                                <td><?php echo $record['billing_amount_paid']?></td>
-                                <td><?php echo $record['customer_balance']?></td>
+                                <td>Rs. <?php echo $record['billing_bottle_rate']?></td>
+                                <td>Rs.<?php echo $record['customer_balance']?></td>
+                                <td>Rs.<?php echo $record['billing_amount_due']?></td>
+                                <td>Rs.<?php echo $record['billing_amount_paid']?></td>
+                                <td>Rs.<?php echo $record['billing_amount_balance']?></td>
                             </tr>
                             <?php } ?>
                             </tbody>
@@ -208,3 +237,8 @@ if(isset($_POST['save_record'])){
 </div>
 
 <?php include "includes/footer.php"; ?>
+<script>
+    $("#paid").keyup(function() {
+        $("span#nameFromInput").text($("#paid").val() );
+    });
+</script>

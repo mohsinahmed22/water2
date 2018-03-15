@@ -17,17 +17,23 @@ function db_query($data){
 
 /* General Selection*/
 function select_all_records($query, $table){
-
     $db_data = db_query($query." ".$table);
     return $db_data;
 }
 
 /* General One Selection*/
 function select_record($table, $column, $id){
-    $select_single_record = db_query("SELECT * FROM $table where  $column = $id");
+    $select_single_record = db_query("SELECT * FROM $table WHERE $column = $id");
 //    $db_data = db_query("SELECT * FROM {}"$table);
     if ($select_single_record){
         return $select_single_record;
+    }
+}
+
+function select_customer_record($id){
+    $select_customer_billing = db_query("SELECT * FROM billing WHERE customer_id = $id");
+    if ($select_customer_billing){
+        return $select_customer_billing;
     }
 }
 
@@ -68,4 +74,41 @@ global $connection;
      if ($add_customer) {
          return true;
      }
+}
+
+
+/* Insert Customer*/
+function insert_customer_billing($data){
+    global $connection;
+    $query = "INSERT INTO billing ";
+    $query .= "(
+                customer_id,
+                customer_balance,
+                billing_date,
+                billing_amount_due,
+                billing_amount_paid,
+                billing_amount_balance,
+                billing_amount_payment_type,
+                billing_bottle_qty,
+                billing_bottle_rate
+                ) ";
+    $query .= "VALUES (
+                {$data['customer_id']},
+                {$data['customer_balance']},
+                 '{$data['billing_date']}',
+                 {$data['billing_amount_due']},
+                {$data['billing_amount_paid']},
+                 {$data['billing_amount_balance']},
+                '{$data['billing_amount_payment_type']}',
+                 {$data['billing_bottle_qty']},
+                {$data['billing_bottle_rate']}                
+                )";
+    $add_customer_billing = mysqli_escape_string($connection, db_query($query));
+
+    $query_customer = $query = "UPDATE customers SET customer_balance = {$data['billing_amount_balance']} WHERE customer_id = {$data['customer_id']}";
+    $add_customer_balance = mysqli_escape_string($connection, db_query($query_customer));
+
+    if ($add_customer_billing && $add_customer_balance) {
+        return true;
+    }
 }
