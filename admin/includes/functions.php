@@ -31,7 +31,7 @@ function select_record($table, $column, $id){
 }
 
 function select_customer_record($id){
-    $select_customer_billing = db_query("SELECT * FROM billing WHERE customer_id = $id");
+    $select_customer_billing = db_query("SELECT * FROM billing WHERE customer_id = $id ORDER BY billing_date DESC");
     if ($select_customer_billing){
         return $select_customer_billing;
     }

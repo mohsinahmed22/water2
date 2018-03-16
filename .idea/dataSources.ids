@@ -30,117 +30,148 @@
       </table>
       <table id="18" parent="1" name="billing"/>
       <table id="19" parent="1" name="admin_users"/>
-      <column id="20" parent="17" name="customer_id">
+      <table id="20" parent="1" name="billing_monthly"/>
+      <column id="21" parent="17" name="customer_id">
         <mandatory>1</mandatory>
         <data-type>int(11)|0</data-type>
         <sequence-identity>1</sequence-identity>
       </column>
-      <column id="21" parent="17" name="customer_username">
+      <column id="22" parent="17" name="customer_username">
         <data-type>varchar(255)|0</data-type>
       </column>
-      <column id="22" parent="17" name="customer_password">
+      <column id="23" parent="17" name="customer_password">
         <data-type>varchar(255)|0</data-type>
       </column>
-      <column id="23" parent="17" name="customer_name">
+      <column id="24" parent="17" name="customer_name">
         <data-type>varchar(255)|0</data-type>
       </column>
-      <column id="24" parent="17" name="customer_address">
+      <column id="25" parent="17" name="customer_address">
         <data-type>text|0</data-type>
       </column>
-      <column id="25" parent="17" name="customer_email">
+      <column id="26" parent="17" name="customer_email">
         <data-type>varchar(255)|0</data-type>
       </column>
-      <column id="26" parent="17" name="customer_phone">
+      <column id="27" parent="17" name="customer_phone">
         <data-type>int(11)|0</data-type>
       </column>
-      <column id="27" parent="17" name="customer_join_date">
+      <column id="28" parent="17" name="customer_join_date">
         <data-type>date|0</data-type>
       </column>
-      <column id="28" parent="17" name="customer_status">
+      <column id="29" parent="17" name="customer_status">
         <data-type>int(11)|0</data-type>
         <default-expression>&apos;0&apos;</default-expression>
       </column>
-      <column id="29" parent="17" name="customer_payment_type">
+      <column id="30" parent="17" name="customer_payment_type">
         <data-type>varchar(255)|0</data-type>
       </column>
-      <column id="30" parent="17" name="customer_bottle_qty">
+      <column id="31" parent="17" name="customer_bottle_qty">
         <data-type>int(11)|0</data-type>
         <default-expression>&apos;1&apos;</default-expression>
       </column>
-      <column id="31" parent="17" name="customer_bottle_rate">
+      <column id="32" parent="17" name="customer_bottle_rate">
         <data-type>float(8,2)|0</data-type>
       </column>
-      <column id="32" parent="17" name="customer_advance">
+      <column id="33" parent="17" name="customer_advance">
         <data-type>float(8,2)|0</data-type>
       </column>
-      <column id="33" parent="17" name="customer_balance">
+      <column id="34" parent="17" name="customer_balance">
         <data-type>float(8,2)|0</data-type>
       </column>
-      <key id="34" parent="17" name="PRIMARY">
+      <key id="35" parent="17" name="PRIMARY">
         <columns>customer_id</columns>
         <primary>1</primary>
       </key>
-      <column id="35" parent="18" name="billing_id">
+      <column id="36" parent="18" name="billing_id">
         <mandatory>1</mandatory>
         <data-type>int(11)|0</data-type>
         <sequence-identity>1</sequence-identity>
       </column>
-      <column id="36" parent="18" name="customer_id">
+      <column id="37" parent="18" name="customer_id">
         <data-type>int(11)|0</data-type>
       </column>
-      <column id="37" parent="18" name="customer_balance">
+      <column id="38" parent="18" name="customer_balance">
         <data-type>float(8,2)|0</data-type>
       </column>
-      <column id="38" parent="18" name="billing_date">
+      <column id="39" parent="18" name="billing_date">
         <data-type>date|0</data-type>
       </column>
-      <column id="39" parent="18" name="billing_amount_due">
+      <column id="40" parent="18" name="billing_amount_due">
         <data-type>float(8,2)|0</data-type>
       </column>
-      <column id="40" parent="18" name="billing_amount_paid">
+      <column id="41" parent="18" name="billing_amount_paid">
         <data-type>float(8,2)|0</data-type>
       </column>
-      <column id="41" parent="18" name="billing_amount_balance">
+      <column id="42" parent="18" name="billing_amount_balance">
         <data-type>float(8,2)|0</data-type>
       </column>
-      <column id="42" parent="18" name="billing_amount_payment_type">
+      <column id="43" parent="18" name="billing_amount_payment_type">
         <data-type>varchar(255)|0</data-type>
       </column>
-      <column id="43" parent="18" name="billing_bottle_qty">
+      <column id="44" parent="18" name="billing_bottle_qty">
         <data-type>int(11)|0</data-type>
       </column>
-      <column id="44" parent="18" name="billing_bottle_rate">
+      <column id="45" parent="18" name="billing_bottle_rate">
         <data-type>float(8,2)|0</data-type>
       </column>
-      <key id="45" parent="18" name="PRIMARY">
+      <key id="46" parent="18" name="PRIMARY">
         <columns>billing_id</columns>
         <primary>1</primary>
       </key>
-      <column id="46" parent="19" name="admin_user_id">
+      <column id="47" parent="19" name="admin_user_id">
         <mandatory>1</mandatory>
         <data-type>int(11)|0</data-type>
         <sequence-identity>1</sequence-identity>
       </column>
-      <column id="47" parent="19" name="admin_user_name">
+      <column id="48" parent="19" name="admin_user_name">
         <data-type>varchar(255)|0</data-type>
       </column>
-      <column id="48" parent="19" name="admin_user_username">
+      <column id="49" parent="19" name="admin_user_username">
         <data-type>varchar(255)|0</data-type>
       </column>
-      <column id="49" parent="19" name="admin_user_password">
+      <column id="50" parent="19" name="admin_user_password">
         <data-type>varchar(255)|0</data-type>
       </column>
-      <column id="50" parent="19" name="admin_user_role">
+      <column id="51" parent="19" name="admin_user_role">
         <data-type>varchar(255)|0</data-type>
       </column>
-      <column id="51" parent="19" name="admin_user_email">
+      <column id="52" parent="19" name="admin_user_email">
         <data-type>varchar(255)|0</data-type>
       </column>
-      <column id="52" parent="19" name="admin_user_status">
+      <column id="53" parent="19" name="admin_user_status">
         <data-type>int(11)|0</data-type>
       </column>
-      <key id="53" parent="19" name="PRIMARY">
+      <key id="54" parent="19" name="PRIMARY">
         <columns>admin_user_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="55" parent="20" name="billing_monthly_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)|0</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="56" parent="20" name="customer_id">
+        <data-type>int(11)|0</data-type>
+      </column>
+      <column id="57" parent="20" name="billing_monthly_month">
+        <data-type>varchar(255)|0</data-type>
+      </column>
+      <column id="58" parent="20" name="billing_monthly_collection_status">
+        <data-type>varchar(255)|0</data-type>
+      </column>
+      <column id="59" parent="20" name="billing_monthly_amount_balance">
+        <data-type>float(8,2)|0</data-type>
+      </column>
+      <column id="60" parent="20" name="billing_monthly_amount_paid">
+        <data-type>float(8,2)|0</data-type>
+      </column>
+      <column id="61" parent="20" name="billing_monthly_amount_due">
+        <data-type>float(8,2)|0</data-type>
+      </column>
+      <column id="62" parent="20" name="billing_monthly_bottle_qty">
+        <data-type>int(11)|0</data-type>
+      </column>
+      <key id="63" parent="20" name="PRIMARY">
+        <columns>billing_monthly_id</columns>
         <primary>1</primary>
       </key>
     </database-model>

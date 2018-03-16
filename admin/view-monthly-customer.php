@@ -8,28 +8,29 @@
 <?php
 date_default_timezone_set("Asia/Karachi");
 $today_date = date("Y-m-d");
-if(isset($_GET['view'])){
-    $view_user = select_record('customers', 'customer_id', $_GET['view']);
-    foreach ($view_user as $user){
-        $customer_username = $user['customer_username'];
-        $customer_name = $user['customer_name'];
-        $customer_address = $user['customer_address'];
-        $customer_email = $user['customer_email'];
-        $customer_phone = $user['customer_phone'];
-        $customer_join_date = $user['customer_join_date'];
-        $customer_status = $user['customer_status'];
-        $customer_payment_type = $user['customer_payment_type'];
-        $customer_bottle_qty = $user['customer_bottle_qty'];
-        $customer_bottle_rate = $user['customer_bottle_rate'];
-        $customer_advance = $user['customer_advance'];
-        $customer_balance = $user['customer_balance'];
-    }
 
-    $subtoatal = $customer_bottle_rate * $customer_bottle_qty ;
-    $grand_total = $subtoatal + $customer_balance;
-    $grand_total_paid = $subtoatal + $customer_balance;
-
+$view_user = select_record('customers', 'customer_id', $_GET['view']);
+foreach ($view_user as $user){
+    $customer_username = $user['customer_username'];
+    $customer_name = $user['customer_name'];
+    $customer_address = $user['customer_address'];
+    $customer_email = $user['customer_email'];
+    $customer_phone = $user['customer_phone'];
+    $customer_join_date = $user['customer_join_date'];
+    $customer_status = $user['customer_status'];
+    $customer_payment_type = $user['customer_payment_type'];
+    $customer_bottle_qty = $user['customer_bottle_qty'];
+    $customer_bottle_rate = $user['customer_bottle_rate'];
+    $customer_advance = $user['customer_advance'];
+    $customer_balance = $user['customer_balance'];
 }
+
+$subtoatal = $customer_bottle_rate * $customer_bottle_qty ;
+$grand_total = $subtoatal + $customer_balance;
+$grand_total_paid = $subtoatal + $customer_balance;
+
+
+
 if(isset($_POST['save_record'])){
     if($_POST['billing_amount_paid'] < $_POST['billing_amount_due']){
     $new_balance = $_POST['billing_amount_due'] - $_POST['billing_amount_paid'];
@@ -50,7 +51,7 @@ if(isset($_POST['save_record'])){
 
     $add_billing = insert_customer_billing($customer_billing);
     if($add_billing) {
-        header("Location: view-customer.php?view={$_POST['customer_id']}");
+        header("Location: view-monthly-customer.php?view={$_POST['customer_id']}");
     }
 }
 ?>
@@ -109,6 +110,61 @@ if(isset($_POST['save_record'])){
                 </div>
             </div>
             <div class="col-md-9 col-sm-10 col-xs-12">
+                <div class="x_panel">
+                        <div class="x_title">
+                            <h2>Monthly Report <small>(<?php echo $customer_name ?>)</small></h2>
+                            <div class="clearfix"></div>
+                        </div>
+                    <div class="x_content">
+                        <form method="post" >
+                        <button type="submit" class="btn btn-danger pull-right"name="generate_report">Generate/Update Report</button>
+                            <?php if($customer_status != 0) {?>
+                                <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target=".bs-paid-modal-lg">Paid</button>
+                            <?php }?>
+                        </form>
+<?php
+if(isset($_POST['generate_report'])){
+// echo "True";
+    $billing_monthly_report = select_customer_record($_GET['view']);
+    echo $num_count = mysqli_num_rows($billing_monthly_report);
+foreach ($billing_monthly_report as $report){
+        $billing_month = date_create("{$report['billing_date']}");
+        echo $newdate[] = date_format($billing_month,'M');
+        $btl_qty = $report['billing_date'];
+}
+}
+print_r($newdate);
+$newdate = array_unique($newdate); echo "<br/>";
+print_r($newdate);
+
+?>
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                            <tr>
+                                <th>Billing Month</th>
+                                <th>Bottle Rate</th>
+                                <th>Bottles Qty</th>
+                                <th>Amount Due</th>
+                                <th>Amount Paid</th>
+                                <th>New Balance</th>
+                                <th>Payment Status</th>
+                                <th>Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td></td>
+                            </tr>
+                            </tbody>
+
+                        </table>
+                        <div class="clearfix"></div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
                         <h2>Billing Details <small>(<?php echo $customer_name ?>)</small></h2>

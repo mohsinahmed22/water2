@@ -71,7 +71,7 @@
                                     <td class="a-right a-right ">Rs. <?php echo $row['customer_advance']?></td>
                                     <td class="a-right a-right ">Rs.<?php echo $row['customer_balance']?></td>
                                     <td class=""><?php if($row['customer_status'] == 1) {echo "Active";}else{echo "Disable";}?></td>
-                                    <td class=" last"><a href="view-customer.php?view=<?php echo $row['customer_id']?>">View</a> | <a href="edit-customer.php?edit=<?php echo $row['customer_id']?>">Edit</a>
+                                    <td class=" last"><a href="view-<?php echo $row['customer_payment_type']== 'Monthly' ? "monthly-" : "";?>customer.php?view=<?php echo $row['customer_id']?>">View</a> | <a href="edit-customer.php?edit=<?php echo $row['customer_id']?>">Edit</a>
                                     </td>
                                 </tr>
                                 <?php }  ?>
