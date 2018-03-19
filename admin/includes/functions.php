@@ -29,6 +29,22 @@ function select_record($table, $column, $id){
         return $select_single_record;
     }
 }
+function sum_record($table,$sum, $customer_column, $id){
+    $total_query = db_query("SELECT SUM({$sum}) as total FROM {$table} WHERE {$customer_column} ={$id}");
+    if($total_query){
+        return $total_query;
+    }
+}
+
+function sum_record_by_month($table,$sum, $customer_column, $id, $month){
+    global $connection;
+    $total_query = db_query("SELECT SUM({$sum}) as total FROM {$table} WHERE {$customer_column} ={$id} AND MONTH(billing_date)=$month");
+    if($total_query){
+        return $total_query;
+    }else{ die('Error' . mysqli_error($connection));}
+}
+
+
 
 function select_customer_record($id){
     $select_customer_billing = db_query("SELECT * FROM billing WHERE customer_id = $id ORDER BY billing_date DESC");
@@ -36,6 +52,7 @@ function select_customer_record($id){
         return $select_customer_billing;
     }
 }
+
 
 
 /* Insert Customer*/
@@ -75,9 +92,28 @@ global $connection;
          return true;
      }
 }
+/* Update Customer*/
+function update_customer($data, $id){
+    global $connection;
+    $edit_query = "UPDATE customers SET
+                customer_username = '{$data['customer_username']}', 
+                customer_password = '{$data['customer_password']}', 
+                customer_name = '{$data['customer_name']}',
+                customer_address = '{$data['customer_address']}', 
+                customer_email = '{$data['customer_email']}', 
+                customer_phone = {$data['customer_phone']},
+                customer_status = {$data['customer_status']},
+                customer_payment_type = '{$data['customer_payment_type']}',
+                customer_bottle_qty = {$data['customer_bottle_qty']},
+                customer_bottle_rate = {$data['customer_bottle_rate']},
+                customer_advance = {$data['customer_advance']},
+                customer_balance = {$data['customer_balance']} 
+               WHERE customer_id = $id ";
+    $update_customer = mysqli_real_escape_string($connection, db_query($edit_query));
+    if($update_customer){return true; }
+}
 
-
-/* Insert Customer*/
+/* Insert Billing Customer*/
 function insert_customer_billing($data){
     global $connection;
     $query = "INSERT INTO billing ";

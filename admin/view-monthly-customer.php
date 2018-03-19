@@ -122,27 +122,11 @@ if(isset($_POST['save_record'])){
                                 <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target=".bs-paid-modal-lg">Paid</button>
                             <?php }?>
                         </form>
-<?php
-if(isset($_POST['generate_report'])){
-// echo "True";
-    $billing_monthly_report = select_customer_record($_GET['view']);
-    echo $num_count = mysqli_num_rows($billing_monthly_report);
-foreach ($billing_monthly_report as $report){
-        $billing_month = date_create("{$report['billing_date']}");
-        echo $newdate[] = date_format($billing_month,'M');
-        $btl_qty = $report['billing_date'];
-}
-}
-print_r($newdate);
-$newdate = array_unique($newdate); echo "<br/>";
-print_r($newdate);
 
-?>
                         <table class="table table-striped table-bordered">
                             <thead>
                             <tr>
                                 <th>Billing Month</th>
-                                <th>Bottle Rate</th>
                                 <th>Bottles Qty</th>
                                 <th>Amount Due</th>
                                 <th>Amount Paid</th>
@@ -151,10 +135,44 @@ print_r($newdate);
                                 <th>Actions</th>
                             </tr>
                             </thead>
+                            <?php
+                            if(isset($_POST['generate_report'])){
+                                // echo "True";
+                                $billing_monthly_report = select_customer_record($_GET['view']);
+                                $num_count = mysqli_num_rows($billing_monthly_report);
+                                foreach ($billing_monthly_report as $report){
+                                    $billing_month = date_create("{$report['billing_date']}");
+                                    $billing_month_year[] = date_format($billing_month,'n');
+                                    $btl_qty = $report['billing_date'];
+                                }
+                            }
+                            $billing_month_year = array_unique($billing_month_year);;
+                            $total = array(
+                                'total_sell' => mysqli_fetch_assoc(sum_record('billing','billing_amount_due','customer_id', $_GET['view'])),
+                                'total_btl_qty' => mysqli_fetch_assoc(sum_record('billing','billing_bottle_qty','customer_id', $_GET['view'])),
+                            );
+
+
+
+
+                            ?>
                             <tbody>
-                            <tr>
-                                <td></td>
-                            </tr>
+                            <?php  foreach($billing_month_year as $months){
+                                        $month = mysqli_fetch_array(sum_record_by_month('billing', 'billing_bottle_qty','customer_id',$_GET['view'],$months));
+                                        $total_sell  = mysqli_fetch_array(sum_record_by_month('billing', 'billing_amount_due','customer_id',$_GET['view'],$months));
+                                        $total_sell  = mysqli_fetch_array(sum_record_by_month('billing', 'billing_amount_due','customer_id',$_GET['view'],$months));
+                                ?>
+
+                                <tr>
+                                    <td><?php echo $months ?></td>
+                                    <td><?php echo $month[0];?></td>
+                                    <td><?php echo $total_sell[0];?></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            <?php } ?>
                             </tbody>
 
                         </table>
