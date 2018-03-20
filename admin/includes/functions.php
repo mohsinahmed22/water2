@@ -38,12 +38,21 @@ function sum_record($table,$sum, $customer_column, $id){
 
 function sum_record_by_month($table,$sum, $customer_column, $id, $month){
     global $connection;
-    $total_query = db_query("SELECT SUM({$sum}) as total FROM {$table} WHERE {$customer_column} ={$id} AND MONTH(billing_date)=$month");
+    $total_query = db_query("SELECT SUM({$sum}) as total FROM {$table} WHERE {$customer_column} ={$id} AND MONTH(billing_date)=$month ");
     if($total_query){
         return $total_query;
     }else{ die('Error' . mysqli_error($connection));}
 }
 
+function insert_billing($id,$month,$qty,$amt_due,$amt_paid,$amt_bal){
+    global $connection;
+    $query = "INSERT INTO billing_monthly ";
+    $query .= "(customer_id, billing_monthly_month, billing_monthly_bottle_qty, 
+              billing_monthly_amount_due, billing_monthly_amount_paid, billing_monthly_amount_balance)";
+    $query .= " VALUES ({$id},'{$month}',{$qty},{$amt_due},{$amt_paid},{$amt_bal})";
+    $total_billing = db_query($query);
+    if ($total_billing){echo "Worked";}else{die('Error' . mysqli_error($connection));}
+}
 
 
 function select_customer_record($id){

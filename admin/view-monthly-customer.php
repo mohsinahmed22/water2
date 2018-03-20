@@ -147,32 +147,21 @@ if(isset($_POST['save_record'])){
                                 }
                             }
                             $billing_month_year = array_unique($billing_month_year);;
-                            $total = array(
-                                'total_sell' => mysqli_fetch_assoc(sum_record('billing','billing_amount_due','customer_id', $_GET['view'])),
-                                'total_btl_qty' => mysqli_fetch_assoc(sum_record('billing','billing_bottle_qty','customer_id', $_GET['view'])),
-                            );
+                            foreach($billing_month_year as $months){
+                                $total['customer_id'] = $_GET['view'];
+                                $total['billing_monthly_month'] = date("F-Y", mktime(0, 0, 0, $months, 10));
+                                $total['billing_monthly_bottle_qty'] = mysqli_fetch_array(sum_record_by_month('billing', 'billing_bottle_qty','customer_id',$_GET['view'],$months));
+                                $total['billing_monthly_amount_due']   = mysqli_fetch_array(sum_record_by_month('billing', 'billing_amount_due','customer_id',$_GET['view'],$months));
+                                $total['billing_monthly_amount_paid']   = mysqli_fetch_array(sum_record_by_month('billing', 'billing_amount_paid','customer_id',$_GET['view'],$months));
+                                $total['billing_monthly_amount_balance']= mysqli_fetch_array(sum_record_by_month('billing', 'billing_amount_balance','customer_id',$_GET['view'],$months));
+                                $add_new_billing = insert_billing($total['customer_id'],$total['billing_monthly_month'],
+                                                    $total['billing_monthly_bottle_qty'][0],$total['billing_monthly_amount_due'][0],$total['billing_monthly_amount_paid'][0],$total['billing_monthly_amount_balance'][0]);
 
 
-
-
+                            }
                             ?>
                             <tbody>
-                            <?php  foreach($billing_month_year as $months){
-                                        $month = mysqli_fetch_array(sum_record_by_month('billing', 'billing_bottle_qty','customer_id',$_GET['view'],$months));
-                                        $total_sell  = mysqli_fetch_array(sum_record_by_month('billing', 'billing_amount_due','customer_id',$_GET['view'],$months));
-                                        $total_sell  = mysqli_fetch_array(sum_record_by_month('billing', 'billing_amount_due','customer_id',$_GET['view'],$months));
-                                ?>
 
-                                <tr>
-                                    <td><?php echo $months ?></td>
-                                    <td><?php echo $month[0];?></td>
-                                    <td><?php echo $total_sell[0];?></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                            <?php } ?>
                             </tbody>
 
                         </table>
