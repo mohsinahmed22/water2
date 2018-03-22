@@ -116,10 +116,22 @@ if(isset($_POST['save_record'])){
                             <div class="clearfix"></div>
                         </div>
                     <div class="x_content">
+                        <?php
+                        if(isset($_POST['monthly_payable'])){
+                            if($_POST['billing_monthly_amount_balance'] > $_POST['billing_monthly_amount_paid']) {
+                                echo $new_paid_and_balance = $_POST['billing_monthly_amount_balance'] - $_POST['billing_monthly_amount_paid'];
+                            }else{
+                                echo $new_paid_and_balance = $_POST['billing_monthly_amount_paid'];
+                            }
+
+
+                        }
+
+                        ?>
                         <form method="post" >
                         <button type="submit" class="btn btn-danger pull-right"name="generate_report">Generate/Update Report</button>
                             <?php if($customer_status != 0) {?>
-                                <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target=".bs-paid-modal-lg">Paid</button>
+
                             <?php }?>
                         </form>
 
@@ -136,6 +148,7 @@ if(isset($_POST['save_record'])){
                             </tr>
                             </thead>
                             <?php
+                            $billing_month_year = "";
                             if(isset($_POST['generate_report'])){
                                 // echo "True";
                                 $billing_monthly_report = select_customer_record($_GET['view']);
@@ -145,24 +158,72 @@ if(isset($_POST['save_record'])){
                                     $billing_month_year[] = date_format($billing_month,'n');
                                     $btl_qty = $report['billing_date'];
                                 }
+                                $billing_month_year = array_unique($billing_month_year);;
+                                foreach($billing_month_year as $months){
+                                    $total['customer_id'] = $_GET['view'];
+                                    $total['billing_monthly_month'] = date("F-Y", mktime(0, 0, 0, $months, 10));
+                                    $total['billing_monthly_bottle_qty'] = mysqli_fetch_array(sum_record_by_month('billing', 'billing_bottle_qty','customer_id',$_GET['view'],$months));
+                                    $total['billing_monthly_amount_due']   = mysqli_fetch_array(sum_record_by_month('billing', 'billing_amount_due','customer_id',$_GET['view'],$months));
+                                    $total['billing_monthly_amount_paid']   = mysqli_fetch_array(sum_record_by_month('billing', 'billing_amount_paid','customer_id',$_GET['view'],$months));
+                                    $total['billing_monthly_amount_balance']= mysqli_fetch_array(sum_record_by_month('billing', 'billing_amount_balance','customer_id',$_GET['view'],$months));
+                                    $add_new_billing = insert_billing($total['customer_id'],$total['billing_monthly_month'],
+                                        $total['billing_monthly_bottle_qty'][0],$total['billing_monthly_amount_due'][0],
+                                        $total['billing_monthly_amount_paid'][0],$total['billing_monthly_amount_balance'][0]);
+                                }
                             }
-                            $billing_month_year = array_unique($billing_month_year);;
-                            foreach($billing_month_year as $months){
-                                $total['customer_id'] = $_GET['view'];
-                                $total['billing_monthly_month'] = date("F-Y", mktime(0, 0, 0, $months, 10));
-                                $total['billing_monthly_bottle_qty'] = mysqli_fetch_array(sum_record_by_month('billing', 'billing_bottle_qty','customer_id',$_GET['view'],$months));
-                                $total['billing_monthly_amount_due']   = mysqli_fetch_array(sum_record_by_month('billing', 'billing_amount_due','customer_id',$_GET['view'],$months));
-                                $total['billing_monthly_amount_paid']   = mysqli_fetch_array(sum_record_by_month('billing', 'billing_amount_paid','customer_id',$_GET['view'],$months));
-                                $total['billing_monthly_amount_balance']= mysqli_fetch_array(sum_record_by_month('billing', 'billing_amount_balance','customer_id',$_GET['view'],$months));
-                                $add_new_billing = insert_billing($total['customer_id'],$total['billing_monthly_month'],
-                                                    $total['billing_monthly_bottle_qty'][0],$total['billing_monthly_amount_due'][0],$total['billing_monthly_amount_paid'][0],$total['billing_monthly_amount_balance'][0]);
 
-
-                            }
                             ?>
                             <tbody>
+                             <?php
+                                $cus_monthly_reports = select_record('billing_monthly','customer_id',$_GET['view']);
+                                if($cus_monthly_reports){
+                                    while($row = mysqli_fetch_assoc($cus_monthly_reports)){?>
+                                     <tr>
+                                    <td><?php echo $row['billing_monthly_month']?></td>
+                                    <td><?php echo $row['billing_monthly_bottle_qty']?></td>
+                                    <td><?php echo $row['billing_monthly_amount_due']?></td>
+                                    <td><?php echo $row['billing_monthly_amount_paid']?></td>
+                                    <td><?php echo $row['billing_monthly_amount_balance']?></td>
+                                    <td><span class="text-danger">Un-paid</span>  <span class="text-success">Paid</span></td>
+                                    <td class="text-center"><button type="button" class="btn btn-xs btn-success" data-toggle="modal" data-target=".bs-paid-<?php echo $row['billing_monthly_month']?>-modal-lg">Pay Amount</button></td>
+                                     </tr>
+                                        <div class="modal fade bs-paid-<?php echo $row['billing_monthly_month']?>-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg">
+                                                <form action="view-monthly-customer.php?view=<?php echo $_GET['view']?>" method="post" class="form-horizontal form-label-left" _lpchecked="1">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                                                            </button>
+                                                            <h4 class="modal-title" id="myModalLabel2">Payment for <?php echo $row['billing_monthly_month']?></h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <h4>New Pay Amount</h4>
+
+                                                            <div class="col-sm-6 ">
+                                                                <div class="form-group">
+                                                                    <label>Amount to be Paid:</label>
+                                                                    <input type="number" class="form-control" name="billing_monthly_amount_paid" placeholder="Amount To be Paid" value="<?php echo $row['billing_monthly_amount_due']?>">
+                                                                    <input type="hidden" class="form-control" name="billing_monthly_id" placeholder="Amount To be Paid" value="<?php echo $row['billing_monthly_id']?>">
+                                                                    <input type="hidden" class="form-control" name="billing_monthly_amount_balance" placeholder="Amount To be Paid" value="<?php echo $row['billing_monthly_amount_balance']?>">
+                                                                    <button type="submit" name="monthly_payable" class="btn btn-sm btn-scucess">Amount Paid</button>
+                                                                </div>
+                                                                </div>
+                                                            </div>
+                                                        <div class="modal-footer">
+
+                                                        </div>
+                                                        </div>
+
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                <?php }
+
+                                } ?>
 
                             </tbody>
+
 
                         </table>
                         <div class="clearfix"></div>
@@ -196,7 +257,7 @@ if(isset($_POST['save_record'])){
                                         <hr/>
 
 
-                                        <div class="col-sm-6    ">
+                                        <div class="col-sm-6 ">
                                             <div class="form-group">
                                                 <label>Billing Date</label>
                                                 <input type="date" class="form-control" name="billing_date" placeholder="Current Date" value="<?php echo $today_date ?>">
@@ -239,8 +300,7 @@ if(isset($_POST['save_record'])){
                                                     </tbody>
                                                 </table>
                                                 <div class="form-group">
-                                                    <label>Amount Payable</label>
-                                                    <input type="text" id="paid" class="form-control" placeholder="Amount Paid" name="billing_amount_paid" required>
+                                                    <input type="text" id="hidden" class="form-control" placeholder="Amount Paid" name="billing_amount_paid" value="0" required>
                                                     <input type="hidden" class="form-control" name="billing_amount_balance" value="0">
                                                 </div>
                                             </div>

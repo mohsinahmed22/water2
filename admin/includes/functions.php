@@ -46,12 +46,27 @@ function sum_record_by_month($table,$sum, $customer_column, $id, $month){
 
 function insert_billing($id,$month,$qty,$amt_due,$amt_paid,$amt_bal){
     global $connection;
-    $query = "INSERT INTO billing_monthly ";
-    $query .= "(customer_id, billing_monthly_month, billing_monthly_bottle_qty, 
+    $query_check = mysqli_fetch_assoc(db_query("SELECT billing_monthly_month FROM billing_monthly WHERE billing_monthly_month LIKE '{$month}' AND customer_id = {$id} "));
+    if($query_check['billing_monthly_month'] == $month){
+        $query = "UPDATE billing_monthly SET ";
+        $query .= " billing_monthly_bottle_qty = {$qty}, 
+                    billing_monthly_amount_due = {$amt_due},
+                    billing_monthly_amount_paid = {$amt_paid},
+                    billing_monthly_amount_balance = {$amt_bal} ";
+        $query .= "WHERE customer_id = {$id} AND billing_monthly_month = '{$month}' ";
+        $total_billing = db_query($query);
+    }else{
+
+        $query2 = "INSERT INTO billing_monthly ";
+        $query2 .= "(customer_id, billing_monthly_month, billing_monthly_bottle_qty,
               billing_monthly_amount_due, billing_monthly_amount_paid, billing_monthly_amount_balance)";
-    $query .= " VALUES ({$id},'{$month}',{$qty},{$amt_due},{$amt_paid},{$amt_bal})";
-    $total_billing = db_query($query);
-    if ($total_billing){echo "Worked";}else{die('Error' . mysqli_error($connection));}
+        $query2 .= " VALUES ({$id},'{$month}',{$qty},{$amt_due},{$amt_paid},{$amt_bal})";
+        $total_billing = db_query($query2);
+    }
+
+    if (!$total_billing){die('Error' . mysqli_error($connection));}
+
+
 }
 
 

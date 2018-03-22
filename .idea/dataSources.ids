@@ -113,67 +113,87 @@
       <column id="45" parent="18" name="billing_bottle_rate">
         <data-type>float(8,2)|0</data-type>
       </column>
-      <key id="46" parent="18" name="PRIMARY">
+      <index id="46" parent="18" name="billing_customers_customer_id_fk">
+        <columns>customer_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="47" parent="18" name="PRIMARY">
         <columns>billing_id</columns>
         <primary>1</primary>
       </key>
-      <column id="47" parent="19" name="admin_user_id">
+      <foreign-key id="48" parent="18" name="billing_customers_customer_id_fk">
+        <columns>customer_id</columns>
+        <ref-key>~.customers.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="49" parent="19" name="admin_user_id">
         <mandatory>1</mandatory>
         <data-type>int(11)|0</data-type>
         <sequence-identity>1</sequence-identity>
       </column>
-      <column id="48" parent="19" name="admin_user_name">
+      <column id="50" parent="19" name="admin_user_name">
         <data-type>varchar(255)|0</data-type>
       </column>
-      <column id="49" parent="19" name="admin_user_username">
+      <column id="51" parent="19" name="admin_user_username">
         <data-type>varchar(255)|0</data-type>
       </column>
-      <column id="50" parent="19" name="admin_user_password">
+      <column id="52" parent="19" name="admin_user_password">
         <data-type>varchar(255)|0</data-type>
       </column>
-      <column id="51" parent="19" name="admin_user_role">
+      <column id="53" parent="19" name="admin_user_role">
         <data-type>varchar(255)|0</data-type>
       </column>
-      <column id="52" parent="19" name="admin_user_email">
+      <column id="54" parent="19" name="admin_user_email">
         <data-type>varchar(255)|0</data-type>
       </column>
-      <column id="53" parent="19" name="admin_user_status">
+      <column id="55" parent="19" name="admin_user_status">
         <data-type>int(11)|0</data-type>
       </column>
-      <key id="54" parent="19" name="PRIMARY">
+      <key id="56" parent="19" name="PRIMARY">
         <columns>admin_user_id</columns>
         <primary>1</primary>
       </key>
-      <column id="55" parent="20" name="billing_monthly_id">
+      <column id="57" parent="20" name="billing_monthly_id">
         <mandatory>1</mandatory>
         <data-type>int(11)|0</data-type>
         <sequence-identity>1</sequence-identity>
       </column>
-      <column id="56" parent="20" name="customer_id">
+      <column id="58" parent="20" name="customer_id">
         <data-type>int(11)|0</data-type>
       </column>
-      <column id="57" parent="20" name="billing_monthly_month">
+      <column id="59" parent="20" name="billing_monthly_month">
         <data-type>varchar(255)|0</data-type>
       </column>
-      <column id="58" parent="20" name="billing_monthly_collection_status">
+      <column id="60" parent="20" name="billing_monthly_collection_status">
         <data-type>varchar(255)|0</data-type>
       </column>
-      <column id="59" parent="20" name="billing_monthly_amount_balance">
+      <column id="61" parent="20" name="billing_monthly_amount_balance">
         <data-type>float(8,2)|0</data-type>
       </column>
-      <column id="60" parent="20" name="billing_monthly_amount_paid">
+      <column id="62" parent="20" name="billing_monthly_amount_paid">
         <data-type>float(8,2)|0</data-type>
       </column>
-      <column id="61" parent="20" name="billing_monthly_amount_due">
+      <column id="63" parent="20" name="billing_monthly_amount_due">
         <data-type>float(8,2)|0</data-type>
       </column>
-      <column id="62" parent="20" name="billing_monthly_bottle_qty">
+      <column id="64" parent="20" name="billing_monthly_bottle_qty">
         <data-type>int(11)|0</data-type>
       </column>
-      <key id="63" parent="20" name="PRIMARY">
+      <index id="65" parent="20" name="billing_monthly_customers_customer_id_fk">
+        <columns>customer_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="66" parent="20" name="PRIMARY">
         <columns>billing_monthly_id</columns>
         <primary>1</primary>
       </key>
+      <foreign-key id="67" parent="20" name="billing_monthly_customers_customer_id_fk">
+        <columns>customer_id</columns>
+        <ref-key>~.customers.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
     </database-model>
   </data-source>
 </component>
