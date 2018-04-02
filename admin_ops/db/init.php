@@ -7,3 +7,5 @@
  */
 include ('config.php');
 include ('lib/Database.php');
+include ('lib/Users.php');
+include ('lib/Customer.php');

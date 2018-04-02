@@ -38,6 +38,10 @@ class Database
         return $this->connection->real_escape_string($string);
     }
 
+    public function insert_last_id(){
+        return mysqli_insert_id($this->connection);
+
+    }
 }
 
 $database = new Database();
