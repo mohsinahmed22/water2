@@ -8,6 +8,9 @@
  */?>
 <?php include "includes/header.php"; ?>
 
+<?php $customer = Customer::find_by_id(1);
+
+?>
 <!-- page content -->
 <div class="right_col" role="main">
     <div class="">
@@ -44,6 +47,7 @@
 
                     <div class="x_content">
 
+
                         <p>Add class <code>bulk_action</code> to table for bulk actions options on row select</p>
 
                         <div class="table-responsive">
@@ -53,7 +57,7 @@
                                     <th>
                                         <input type="checkbox" id="check-all" class="flat">
                                     </th>
-                                    <th class="column-title">Invoice </th>
+                                    <th class="column-title"><?php ?> Inovice ID</th>
                                     <th class="column-title">Invoice Date </th>
                                     <th class="column-title">Order </th>
                                     <th class="column-title">Bill to Name </th>

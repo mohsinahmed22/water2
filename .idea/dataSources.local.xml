@@ -3,6 +3,7 @@
   <component name="dataSourceStorageLocal">
     <data-source name="MySQL - water_db@localhost" uuid="71288ddb-f771-46d2-859f-03e3b8531ae2">
       <secret-storage>memory</secret-storage>
+      <user-name>root</user-name>
     </data-source>
   </component>
 </project>

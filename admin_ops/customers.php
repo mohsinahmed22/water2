@@ -5,7 +5,12 @@
  * Time: 11:42 AM
  */?>
 <?php include "includes/header.php"; ?>
-<?php  $customers = Customer::select_all_users(); ?>
+<?php  $customers = Customer::find_all(); ?>
+<?php
+$message = "";
+if (isset($_GET['message'])){
+    $message = $_GET['message'];
+}?>
 <!-- page content -->
 <div class="right_col" role="main">
     <div class="">
@@ -21,6 +26,7 @@
         <div class="clearfix"></div>
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="alert alert-success"><?php echo $message;?></div>
                 <div class="x_panel">
                     <div class="x_content">
                         <div class="table-responsive">
@@ -69,7 +75,7 @@
                                     <td class="a-right a-right ">Rs. <?php echo $customer->customer_advance ?></td>
                                     <td class="a-right a-right ">Rs.<?php echo $customer->customer_balance?></td>
                                     <td class=""><?php if($customer->customer_status == 1) {echo "Active";}else{echo "Disable";}?></td>
-                                    <td class=" last"><a href="view-<?php echo $customer->customer_payment_type == 'Monthly' ? "monthly-" : "";?>customer.php?view=<?php echo $customer->customer_id ?>">View</a> | <a href="edit-customer.php?edit=<?php echo $row['customer_id']?>">Edit</a>
+                                    <td class=" last"><a href="view-<?php echo $customer->customer_payment_type == 'Monthly' ? "monthly-" : "";?>customer.php?view=<?php echo $customer->customer_id ?>">View</a> | <a href="edit-customer.php?edit=<?php echo $customer->customer_id?>">Edit</a>
                                     </td>
                                 </tr>
                                 <?php }  ?>
