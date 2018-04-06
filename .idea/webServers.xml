@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="bb43cf59-6559-46bc-9f07-a112499bb756" name="AqualJal_FTP" url="http://167.114.64.59">
+        <fileTransfer host="167.114.64.59" port="21" password="df8bdfebdfdbdfdfdfcbdfc0dfcbdfc6df98df9adf9bdf92df80" username="aquajalp">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

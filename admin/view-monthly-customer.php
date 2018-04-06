@@ -276,7 +276,7 @@ if(isset($_POST['save_record'])){
                                         <div class="col-sm-6 pull-right">
                                             <h4>Billing Total</h4>
                                             <div class="table-responsive">
-                                                <table class="table">
+                                                <table class="table">aaaaa
                                                     <tbody>
                                                     <tr>
                                                         <th style="width:50%">Subtotal:</th>
