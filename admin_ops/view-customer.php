@@ -8,9 +8,10 @@
 <?php
 date_default_timezone_set("Asia/Karachi");
 $today_date = date("Y-m-d");
+
 if(isset($_GET['view'])){
     $customer = Customer::find_by_id($_GET['view']);
-    $customer->id = $_GET['view'];
+    $customer->customer_id = $_GET['view'];
 }
 ?>
 
@@ -103,7 +104,12 @@ if(isset($_GET['view'])){
                                             </div>
                                             <div class="form-group">
                                                 <label>Bottle Qty</label>
-                                                <input type="number" class="form-control" id="btl_qty" name="billing_bottle_qty" placeholder="Bottle Qty" value="<?php echo $customer->customer_bottle_qty;?>" onchange="newQty(this.value)">
+                                                <input type="number" class="form-control" id="btl_qty" name="billing_bottle_qty" placeholder="Bottle Qty" value="<?php echo $customer->customer_bottle_qty;?>" onkeyup="update_value(this.value)">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Previous Balance</label>
+                                                <input type="checkbox" id="previous_balance" name="previous_balance" value="y" onchange="update_value(this)"> <br>
+                                                <small>if checked previous balance will be added to total</small>
                                             </div>
 
 
@@ -112,28 +118,11 @@ if(isset($_GET['view'])){
                                             <h4>Billing Total</h4>
                                             <div class="table-responsive">
                                                 <table class="table">
-                                                    <tbody>
-                                                    <tr>
-                                                        <th style="width:50%">Subtotal:</th>
-                                                        <td>Rs.<div id="netl"><?php echo $subtoatal?></div></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Balance</th>
-                                                        <td>Rs.<?php echo $customer_balance ?>
-                                                            <input type="hidden" class="form-control" name="customer_balance" value="<?php echo $customer_balance ?>">
-                                                            <input type="hidden" class="form-control" name="customer_id" value="<?php echo $_GET['view']?>">
-
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Total:</th>
-                                                        <td>Rs. <div id="grndtl"><?php echo  $grand_total?></div>
-                                                            <input type="hidden" class="form-control" name="billing_amount_due" value="<?php echo $grand_total?>">
-
-                                                        </td>
-                                                    </tr>
+                                                    <tbody id="test">
                                                     </tbody>
                                                 </table>
+                                                <input type="hidden" class="form-control" name="customer_balance" value="<?php echo $customer_balance ?>">
+                                                <input type="hidden" class="form-control" name="customer_id" value="<?php echo $_GET['view']?>">
                                                 <div class="form-group">
                                                     <label>Amount Payable</label>
                                                     <input type="text" id="paid" class="form-control" placeholder="Amount Paid" name="billing_amount_paid" required>
@@ -176,18 +165,19 @@ if(isset($_GET['view'])){
 
                             <tbody>
                             <?php
-                                $billing_month = select_customer_record($_GET['view']);
-                                foreach ($billing_month as $record){
+
+                                $customer_billing = Billing::find_by_id($customer->customer_id);
+                                foreach ($customer_billing as $record){
                             ?>
                             <tr>
-                                <td><?php echo $record['billing_amount_payment_type']?></td>
-                                <td><?php echo $record['billing_date']?></td>
-                                <td><?php echo $record['billing_bottle_qty']?></td>
-                                <td>Rs. <?php echo $record['billing_bottle_rate']?></td>
-                                <td>Rs.<?php echo $record['customer_balance']?></td>
-                                <td>Rs.<?php echo $record['billing_amount_due']?></td>
-                                <td>Rs.<?php echo $record['billing_amount_paid']?></td>
-                                <td>Rs.<?php echo $record['billing_amount_balance']?></td>
+                                <td><?php echo $record->billing_amount_payment_type;?></td>
+                                <td><?php echo $record->billing_date;?></td>
+                                <td><?php echo $record->billing_bottle_qty;?></td>
+                                <td>Rs. <?php echo $record->billing_bottle_rate ?></td>
+                                <td>Rs.<?php echo $record->customer_balance ?></td>
+                                <td>Rs.<?php echo $record->billing_amount_due ?></td>
+                                <td>Rs.<?php echo $record->billing_amount_paid ?></td>
+                                <td>Rs.<?php echo $record->billing_amount_balance ?></td>
                             </tr>
                             <?php } ?>
                             </tbody>
@@ -199,14 +189,34 @@ if(isset($_GET['view'])){
     </div>
 </div>
 
+
 <?php include "includes/footer.php"; ?>
 <script>
-    function newQty(str) {
-        var newtotal = document.getElementById("btl_rate").value * str;
-        document.getElementById("netl").innerHTML = newtotal;
+
+    update_value();
+    function update_value(val) {
+        var rate  = document.getElementById('btl_rate').value ;
+        var qty = document.getElementById('btl_qty').value;
+
+        if(document.getElementById('previous_balance').checked){
+            var bal = 1;
+            var balamt = <?php echo $customer->customer_balance;?>
+        }else{
+            var bal = 0;
+            var balamt = 0;
+        }
+
+
+        var xhttp;
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (xhttp.readyState == 4 || xhttp.status == 200){
+                document.getElementById('test').innerHTML = xhttp.responseText;
+            }
+        }
+
+        xhttp.open('GET', 'test.php?qty='+ qty + '&rate='+ rate + "&bal="+ bal + "&balamt="+ balamt, true)
+        xhttp.send();
     }
 
-    $("#paid").keyup(function() {
-        $("span#nameFromInput").text($("#paid").val() );
-    });
 </script>

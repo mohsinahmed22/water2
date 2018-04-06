@@ -14,7 +14,7 @@ class DbObject
     }
 
     public static function find_by_id($id){
-        $found_id =  static::find_query("SELECT * FROM ". static::$db_table . " WHERE ". static::$column ." = $id  LIMIT 1");
+        $found_id =  static::find_query("SELECT * FROM ". static::$db_table . " WHERE ". static::$column ." = $id ");
         return !empty($found_id) ? array_shift($found_id) : false;
     }
 
