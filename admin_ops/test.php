@@ -21,7 +21,14 @@ if(isset($_GET['qty'])){?>
     <tr>
         <th>Total:</th>
         <td>Rs. <div id="grndtl"><?php
-                $total = ($_GET['rate'] * $_GET['qty']);
+
+                        if ($_GET['bal'] == 1) {
+                            $total = ($_GET['rate'] * $_GET['qty']) + $_GET['balamt'] ;
+                            echo $total;
+                        }else{
+                            $total = ($_GET['rate'] * $_GET['qty']);
+                            echo $total;
+                        }
 
 
                 ?></div>
