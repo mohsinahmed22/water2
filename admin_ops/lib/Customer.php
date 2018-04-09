@@ -42,6 +42,18 @@ class Customer extends DbObject
     public $customer_balance;
 
 
+    public static function verify_customer($username, $password){
+            global $database;
+            $query =  "SELECT * FROM customers where ";
+            $query .= "customer_username = '{$username}' and ";
+            $query .= "customer_password = '{$password}'";
+            $found_customer = static::find_query($query);
+
+            return !empty($found_customer)? array_shift($found_customer): false;
+
+
+    }
+
 
 
 
