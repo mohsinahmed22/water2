@@ -41,28 +41,36 @@ class Billing extends DbObject
         return !empty($found_id) ? $found_id : false;
     }
 
-    public function monthly_info($date){
-        $a = new self();
-        echo $a->customer_id;
+    public function sum_monthly($id,$column, $month, $year){
+        global $database;
+
+        $query = "SELECT sum({$column}) as total FROM billing where customer_id =" . $id . " AND MONTH(billing_date) = {$month} AND YEAR(billing_date) = {$year}";
+        $result = $database->query($query);
+//        $result = static::find_query($query);
+        return mysqli_fetch_assoc($result);
     }
 
-    public function monthname($id){
-        $this->id = $id;
+
+    public function records_by_month($id){
         $query = "select *  from billing where customer_id = " . $id;
         $result = static::find_query($query);
         $month_array = array();
         foreach ($result as $nw){
             $date= date_create($nw->billing_date);
-            $month_array[date_format($date,"My")]['month'] = date_format($date,"M-y");
-            $month_array[date_format($date,"My")]['visit'] = static::monthly_info($nw->billing_date);
+              $month_array[date_format($date,"My")]['month'] = date_format($date,"M-y");
+              $month_array[date_format($date,"My")]['paid'] = $nw->sum_monthly($id,'billing_amount_paid',date_format($date,"m"), date_format($date,"Y"));
+              $month_array[date_format($date,"My")]['due'] = $nw->sum_monthly($id,'billing_amount_due',date_format($date,"m"), date_format($date,"Y"));
+              $month_array[date_format($date,"My")]['qty'] = $nw->sum_monthly($id,'billing_bottle_qty',date_format($date,"m"), date_format($date,"Y"));
         }
-
         return $month_array;
     }
-
     public function monthly_record($id){
-            $month_name_array = self::monthname($id);
-            print_r($month_name_array);
+            $monthly_detail = self::records_by_month($id);
+            print_r($monthly_detail);
+            foreach ($monthly_detail as $item) {
+                print_r($item);
+
+            }
 
 
 

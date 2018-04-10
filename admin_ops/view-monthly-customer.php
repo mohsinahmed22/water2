@@ -122,12 +122,9 @@ if(isset($_POST['save_record'])){
                                 <th>Actions</th>
                             </tr>
                             </thead>
-
                             <tbody>
 
                             </tbody>
-
-
                         </table>
                         <div class="clearfix"></div>
                     </div>
@@ -137,8 +134,8 @@ if(isset($_POST['save_record'])){
 //                        $new = $database->query('SELECT COUNT(\'billing_month\') AS month_count  FROM billing WHERE customer_id = 26');
 //                            $new = $database->query("SELECT count(billing_date) as TRecords
 //  FROM billing WHERE customer_id = 26 AND DATE_FORMAT(billing_date, '%Y-%m') >= '2015-01';");
-
                         $new_max = Billing::monthly_record($customer->customer_id);
+
 
                     ?>
                 </div>
