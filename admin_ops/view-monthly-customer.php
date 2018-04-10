@@ -114,30 +114,30 @@ if(isset($_POST['save_record'])){
                             <thead>
                             <tr>
                                 <th>Billing Month</th>
-                                <th>Bottles Qty</th>
+                                <th>Monthly Visits</th>
+                                <th>Bottle Qty</th>
                                 <th>Amount Due</th>
                                 <th>Amount Paid</th>
-                                <th>New Balance</th>
                                 <th>Payment Status</th>
                                 <th>Actions</th>
                             </tr>
                             </thead>
                             <tbody>
+                            <?php
+                            $new_month = new Billing();
+                            global $database;
+                            //                        $new = $database->query('SELECT COUNT(\'billing_month\') AS month_count  FROM billing WHERE customer_id = 26');
+                            //                            $new = $database->query("SELECT count(billing_date) as TRecords
+                            //  FROM billing WHERE customer_id = 26 AND DATE_FORMAT(billing_date, '%Y-%m') >= '2015-01';");
+                            $new_max = Billing::monthly_record($customer->customer_id);
 
+
+                            ?>
                             </tbody>
                         </table>
                         <div class="clearfix"></div>
                     </div>
-                    <?php
-                        $new_month = new Billing();
-                        global $database;
-//                        $new = $database->query('SELECT COUNT(\'billing_month\') AS month_count  FROM billing WHERE customer_id = 26');
-//                            $new = $database->query("SELECT count(billing_date) as TRecords
-//  FROM billing WHERE customer_id = 26 AND DATE_FORMAT(billing_date, '%Y-%m') >= '2015-01';");
-                        $new_max = Billing::monthly_record($customer->customer_id);
 
-
-                    ?>
                 </div>
             </div>
             <div class="col-md-12 col-sm-12 col-xs-12">
