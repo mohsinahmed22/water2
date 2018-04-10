@@ -20,6 +20,7 @@ if(isset($_GET['qty'])){?>
     <?php } ?>
     <tr>
         <th>Total:</th>
+
         <td>Rs. <div id="grndtl"><?php
 
                         if ($_GET['bal'] == 1) {
@@ -34,6 +35,7 @@ if(isset($_GET['qty'])){?>
                 ?></div>
 
         </td>
+
    </tr>
 
 <?php }
