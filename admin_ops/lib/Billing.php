@@ -81,7 +81,7 @@ class Billing extends DbObject
             $paid = array_column($monthly_detail, 'paid');
             $due = array_column($monthly_detail, 'due');
             $qty = array_column($monthly_detail, 'qty');
-            for($i=0; $i <= count($month); $i++){
+            for($i=0; $i < count($month); $i++){
                 $html = "<tr>";
                 $html .= "<td>". $month[$i]. "</td>";
                 $html .= "<td>". $visits[$i]['total']. "</td>";

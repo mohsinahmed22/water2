@@ -4,7 +4,6 @@
     <list default="true" id="c2e9199b-a29f-43a8-9fc2-7e518f1c324a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin_ops/lib/Billing.php" afterPath="$PROJECT_DIR$/admin_ops/lib/Billing.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin_ops/view-monthly-customer.php" afterPath="$PROJECT_DIR$/admin_ops/view-monthly-customer.php" />
     </list>
     <ignored path="water.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -105,19 +104,19 @@
       <file leaf-file-name="Billing.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/admin_ops/lib/Billing.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
-              <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
+            <state relative-caret-position="316">
+              <caret line="83" column="26" selection-start-line="83" selection-start-column="26" selection-end-line="83" selection-end-column="26" />
               <folding>
-                <marker date="1523363857263" expanded="true" signature="1415:1484" ph="SELECT * FRO... ${static::$db_table}" />
-                <marker date="1523363857263" expanded="true" signature="1659:1702" ph="SELECT SUM(b... billing" />
-                <marker date="1523363857263" expanded="true" signature="1659:1722" ph="SELECT sum(b... billingwhere" />
-                <marker date="1523363857263" expanded="true" signature="1659:1733" ph="SELECT sum(b... billing" />
-                <marker date="1523363857263" expanded="true" signature="1659:1794" ph="SELECT sum(b... billing" />
-                <marker date="1523363857263" expanded="true" signature="1659:1801" ph="SELECT sum(b... billing" />
-                <marker date="1523363857263" expanded="true" signature="1659:1802" ph="SELECT sum(b... billing" />
-                <marker date="1523363857263" expanded="true" signature="2045:2174" ph="SELECT count... " />
-                <marker date="1523363857263" expanded="true" signature="2390:2433" ph="select * fro... billing" />
-                <marker date="1523363857263" expanded="true" signature="3846:3948" ph="..." />
+                <marker date="1523364016931" expanded="true" signature="1415:1484" ph="SELECT * FRO... ${static::$db_table}" />
+                <marker date="1523364016931" expanded="true" signature="1659:1702" ph="SELECT SUM(b... billing" />
+                <marker date="1523364016931" expanded="true" signature="1659:1722" ph="SELECT sum(b... billingwhere" />
+                <marker date="1523364016931" expanded="true" signature="1659:1733" ph="SELECT sum(b... billing" />
+                <marker date="1523364016931" expanded="true" signature="1659:1794" ph="SELECT sum(b... billing" />
+                <marker date="1523364016931" expanded="true" signature="1659:1801" ph="SELECT sum(b... billing" />
+                <marker date="1523364016931" expanded="true" signature="1659:1802" ph="SELECT sum(b... billing" />
+                <marker date="1523364016931" expanded="true" signature="2045:2174" ph="SELECT count... " />
+                <marker date="1523364016931" expanded="true" signature="2390:2433" ph="select * fro... billing" />
+                <marker date="1523364016931" expanded="true" signature="3845:3947" ph="..." />
               </folding>
             </state>
           </provider>
@@ -386,7 +385,7 @@
       <workItem from="1523019242708" duration="71000" />
       <workItem from="1523040516047" duration="29691000" />
       <workItem from="1523330561963" duration="281000" />
-      <workItem from="1523346815743" duration="14125000" />
+      <workItem from="1523346815743" duration="14310000" />
     </task>
     <task id="LOCAL-00002" summary="Customers Lists updated">
       <created>1522940783814</created>
@@ -423,11 +422,18 @@
       <option name="project" value="LOCAL" />
       <updated>1523360760925</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="update of monthly calculation&#10;">
+      <created>1523363873376</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1523363873376</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69278000" />
+    <option name="totallyTimeSpent" value="69463000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -748,16 +754,16 @@
         <state relative-caret-position="670">
           <caret line="41" column="1" selection-start-line="41" selection-start-column="1" selection-end-line="41" selection-end-column="1" />
           <folding>
-            <marker date="1523363857263" expanded="true" signature="1415:1484" ph="SELECT * FRO... ${static::$db_table}" />
-            <marker date="1523363857263" expanded="true" signature="1659:1702" ph="SELECT SUM(b... billing" />
-            <marker date="1523363857263" expanded="true" signature="1659:1722" ph="SELECT sum(b... billingwhere" />
-            <marker date="1523363857263" expanded="true" signature="1659:1733" ph="SELECT sum(b... billing" />
-            <marker date="1523363857263" expanded="true" signature="1659:1794" ph="SELECT sum(b... billing" />
-            <marker date="1523363857263" expanded="true" signature="1659:1801" ph="SELECT sum(b... billing" />
-            <marker date="1523363857263" expanded="true" signature="1659:1802" ph="SELECT sum(b... billing" />
-            <marker date="1523363857263" expanded="true" signature="2045:2174" ph="SELECT count... " />
-            <marker date="1523363857263" expanded="true" signature="2390:2433" ph="select * fro... billing" />
-            <marker date="1523363857263" expanded="true" signature="3846:3948" ph="..." />
+            <marker date="1523364016931" expanded="true" signature="1415:1484" ph="SELECT * FRO... ${static::$db_table}" />
+            <marker date="1523364016931" expanded="true" signature="1659:1702" ph="SELECT SUM(b... billing" />
+            <marker date="1523364016931" expanded="true" signature="1659:1722" ph="SELECT sum(b... billingwhere" />
+            <marker date="1523364016931" expanded="true" signature="1659:1733" ph="SELECT sum(b... billing" />
+            <marker date="1523364016931" expanded="true" signature="1659:1794" ph="SELECT sum(b... billing" />
+            <marker date="1523364016931" expanded="true" signature="1659:1801" ph="SELECT sum(b... billing" />
+            <marker date="1523364016931" expanded="true" signature="1659:1802" ph="SELECT sum(b... billing" />
+            <marker date="1523364016931" expanded="true" signature="2045:2174" ph="SELECT count... " />
+            <marker date="1523364016931" expanded="true" signature="2390:2433" ph="select * fro... billing" />
+            <marker date="1523364016931" expanded="true" signature="3845:3947" ph="..." />
           </folding>
         </state>
       </provider>
@@ -902,19 +908,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/admin_ops/lib/Billing.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
+        <state relative-caret-position="316">
+          <caret line="83" column="26" selection-start-line="83" selection-start-column="26" selection-end-line="83" selection-end-column="26" />
           <folding>
-            <marker date="1523363857263" expanded="true" signature="1415:1484" ph="SELECT * FRO... ${static::$db_table}" />
-            <marker date="1523363857263" expanded="true" signature="1659:1702" ph="SELECT SUM(b... billing" />
-            <marker date="1523363857263" expanded="true" signature="1659:1722" ph="SELECT sum(b... billingwhere" />
-            <marker date="1523363857263" expanded="true" signature="1659:1733" ph="SELECT sum(b... billing" />
-            <marker date="1523363857263" expanded="true" signature="1659:1794" ph="SELECT sum(b... billing" />
-            <marker date="1523363857263" expanded="true" signature="1659:1801" ph="SELECT sum(b... billing" />
-            <marker date="1523363857263" expanded="true" signature="1659:1802" ph="SELECT sum(b... billing" />
-            <marker date="1523363857263" expanded="true" signature="2045:2174" ph="SELECT count... " />
-            <marker date="1523363857263" expanded="true" signature="2390:2433" ph="select * fro... billing" />
-            <marker date="1523363857263" expanded="true" signature="3846:3948" ph="..." />
+            <marker date="1523364016931" expanded="true" signature="1415:1484" ph="SELECT * FRO... ${static::$db_table}" />
+            <marker date="1523364016931" expanded="true" signature="1659:1702" ph="SELECT SUM(b... billing" />
+            <marker date="1523364016931" expanded="true" signature="1659:1722" ph="SELECT sum(b... billingwhere" />
+            <marker date="1523364016931" expanded="true" signature="1659:1733" ph="SELECT sum(b... billing" />
+            <marker date="1523364016931" expanded="true" signature="1659:1794" ph="SELECT sum(b... billing" />
+            <marker date="1523364016931" expanded="true" signature="1659:1801" ph="SELECT sum(b... billing" />
+            <marker date="1523364016931" expanded="true" signature="1659:1802" ph="SELECT sum(b... billing" />
+            <marker date="1523364016931" expanded="true" signature="2045:2174" ph="SELECT count... " />
+            <marker date="1523364016931" expanded="true" signature="2390:2433" ph="select * fro... billing" />
+            <marker date="1523364016931" expanded="true" signature="3845:3947" ph="..." />
           </folding>
         </state>
       </provider>
