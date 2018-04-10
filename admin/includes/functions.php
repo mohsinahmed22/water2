@@ -72,9 +72,7 @@ function insert_billing($id,$month,$qty,$amt_due,$amt_paid,$amt_bal){
 
 function select_customer_record($id){
     $select_customer_billing = db_query("SELECT * FROM billing WHERE customer_id = $id ORDER BY billing_date DESC");
-    if ($select_customer_billing){
-        return $select_customer_billing;
-    }
+    if ($select_customer_billing){ return $select_customer_billing; }
 }
 
 

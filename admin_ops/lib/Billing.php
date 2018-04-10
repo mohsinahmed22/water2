@@ -22,7 +22,9 @@ class Billing extends DbObject
                                                 "billing_bottle_qty",
                                                 "billing_bottle_rate"
                                             );
+
     public $billing_id;
+    public $id;
     public $customer_id;
     public $customer_balance;
     public $billing_date;
@@ -37,6 +39,35 @@ class Billing extends DbObject
     public static function find_by_id($id){
         $found_id =  static::find_query("SELECT * FROM ". static::$db_table . " WHERE ". static::$column ." = $id ");
         return !empty($found_id) ? $found_id : false;
+    }
+
+    public function monthly_info($date){
+        $a = new self();
+        echo $a->customer_id;
+    }
+
+    public function monthname($id){
+        $this->id = $id;
+        $query = "select *  from billing where customer_id = " . $id;
+        $result = static::find_query($query);
+        $month_array = array();
+        foreach ($result as $nw){
+            $date= date_create($nw->billing_date);
+            $month_array[date_format($date,"My")]['month'] = date_format($date,"M-y");
+            $month_array[date_format($date,"My")]['visit'] = static::monthly_info($nw->billing_date);
+        }
+
+        return $month_array;
+    }
+
+    public function monthly_record($id){
+            $month_name_array = self::monthname($id);
+            print_r($month_name_array);
+
+
+
+
+
     }
 
 }
