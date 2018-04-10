@@ -12,6 +12,31 @@ $today_date = date("Y-m-d");
 if(isset($_GET['view'])){
     $customer = Customer::find_by_id($_GET['view']);
     $customer->customer_id = $_GET['view'];
+
+}
+if(isset($_POST['save_record'])){
+//    if($_POST['previous_balance']) {echo "yes";}
+    $new_record = new Billing();
+    $new_record->customer_id = $customer->customer_id;
+    $new_record->billing_date = $_POST['billing_date'];
+    $new_record->billing_amount_paid = $_POST['billing_amount_paid'];
+    $new_record->billing_bottle_qty = $_POST['billing_bottle_qty'];
+    $new_record->billing_bottle_rate = $_POST['billing_bottle_rate'];
+    $new_record->billing_amount_payment_type = $_POST['billing_amount_payment_type'];
+    $new_record->customer_balance = $customer->customer_balance;
+    $new_record->billing_amount_due = $new_record->billing_bottle_qty * $_POST['billing_bottle_rate'];
+
+    if(isset($_POST['previous_balance'])){
+        $new_record->billing_amount_balance = ($new_record->billing_amount_due + $new_record->customer_balance) - $new_record->billing_amount_paid;
+    }elseif(!isset($_POST['previous_balance']) && $new_record->billing_amount_due > $new_record->billing_amount_paid){
+        $new_record->billing_amount_balance  = $new_record->customer_balance + ($new_record->billing_amount_due - $new_record->billing_amount_paid);
+    }else{
+        $new_record->billing_amount_balance = $new_record->customer_balance;
+    }
+    $new_record->save();
+    $customer->customer_balance = $new_record->billing_amount_balance;
+    $customer->id = $customer->customer_id;
+    $customer->update();
 }
 ?>
 
@@ -20,7 +45,7 @@ if(isset($_GET['view'])){
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3><?php echo $customer->customer_name ?>   <small><a class="btn btn-xs btn-success" href="edit-customer.php?edit=<?php echo $customer->id ;?>">Edit Customer</a></small></h3>
+                <h3><?php echo $customer->customer_name ?>   <small><a class="btn btn-xs btn-success" href="edit-customer.php?edit=<?php echo $customer->customer_id ;?>">Edit Customer</a></small></h3>
             </div>
         </div>
 
@@ -36,7 +61,10 @@ if(isset($_GET['view'])){
 
                     <div class="x_content">
 
-                        <h3><?php echo $customer->customer_name ?></h3>
+                        <h3><?php echo $customer->customer_name;
+
+
+                            ?></h3>
                         <ul class="list-unstyled user_data">
                             <li><span class="<?php echo ($customer->customer_status == 0) ? "text-danger" : "text-sucess"; ?>"> <i class="fa fa-user user-profile-icon"></i> <?php echo ($customer->customer_status == 0) ? "Disable" : "Active"; ?></span></li>
                             <li><i class="fa fa-key user-profile-icon"></i> <?php echo $customer->customer_username ?> (Username)</li>
@@ -49,6 +77,7 @@ if(isset($_GET['view'])){
                 </div>
                 <div class="x_panel">
                     <div class="x_title">
+
                         <h2>Billing Detail <small>Aqua jal</small></h2>
                         <div class="clearfix"></div>
                     </div>
@@ -78,7 +107,7 @@ if(isset($_GET['view'])){
                         <?php }?>
                         <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
-                                <form action="view-customer.php" method="post" class="form-horizontal form-label-left" _lpchecked="1">
+                                <form action="view-customer.php?view=<?php echo $_GET['view']?>" method="post" class="form-horizontal form-label-left" _lpchecked="1">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
@@ -108,7 +137,9 @@ if(isset($_GET['view'])){
                                             </div>
                                             <div class="form-group">
                                                 <label>Previous Balance</label>
-                                                <input type="checkbox" id="previous_balance" name="previous_balance" value="y" onchange="update_value(this)"> <br>
+                                                <input type="checkbox" id="previous_balance" name="previous_balance" value="1" onchange="update_value(this)">
+
+                                                <br>
                                                 <small>if checked previous balance will be added to total</small>
                                             </div>
 
@@ -121,7 +152,6 @@ if(isset($_GET['view'])){
                                                     <tbody id="test">
                                                     </tbody>
                                                 </table>
-                                                <input type="hidden" class="form-control" name="customer_balance" value="<?php echo $customer_balance ?>">
                                                 <input type="hidden" class="form-control" name="customer_id" value="<?php echo $_GET['view']?>">
                                                 <div class="form-group">
                                                     <label>Amount Payable</label>
