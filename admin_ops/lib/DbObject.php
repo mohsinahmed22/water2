@@ -85,6 +85,7 @@ class DbObject
         $query = "UPDATE " . static::$db_table . " SET ";
         $query .= implode(", ", $properties_pairs);
         $query .= " WHERE " . static::$column ." = " . $this->id;
+//        echo $query;
         $database->query($query);
 
         return (mysqli_affected_rows($database->connection) == 1)? true : false;
