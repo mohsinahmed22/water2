@@ -10,4 +10,3 @@ include ('lib/Database.php');
 include ('lib/DbObject.php');
 include ('lib/Customer.php');
 include ('lib/Billing.php');
-include ('lib/Monthly_Billing.php');

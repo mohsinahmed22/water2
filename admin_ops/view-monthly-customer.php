@@ -15,7 +15,6 @@ if(isset($_GET['view'])){
 
 }
 
-
 if(isset($_POST['save_record'])){
 //    if($_POST['previous_balance']) {echo "yes";}
     $new_record = new Billing();
@@ -43,7 +42,6 @@ if(isset($_POST['save_record'])){
 }
 ?>
 
-
 <!-- page content -->
 <div class="right_col" role="main">
     <div class="">
@@ -53,12 +51,10 @@ if(isset($_POST['save_record'])){
             </div>
         </div>
 
-
         <div class="clearfix"></div>
 
         <div class="row">
             <div class="col-md-3 col-sm-2 col-xs-12">
-
                 <div class="x_panel">
                     <div class="x_title">
                         <h2>Personal Information <small>Aqua jal</small></h2>
@@ -100,13 +96,6 @@ if(isset($_POST['save_record'])){
                 </div>
             </div>
             <div class="col-md-9 col-sm-10 col-xs-12">
-                <?php
-                    if(isset($_POST['generate_report'])){
-                        $generate_record = new Monthly_Billing();
-                        $new_record = $generate_record->monthly_record($customer->customer_id);
-                        echo $new_record;
-                    }
-                ?>
                 <div class="x_panel">
                         <div class="x_title">
                             <h2>Monthly Report <small>(<?php echo $customer->customer_name ?>)</small></h2>
@@ -114,8 +103,8 @@ if(isset($_POST['save_record'])){
                         </div>
                     <div class="x_content">
 
-                        <form method="post" action="view-monthly-customer.php?view=<?php echo $customer->customer_id ?>" >
-                        <button type="submit" class="btn btn-danger pull-right" name="generate_report">Generate/Update Report</button>
+                        <form method="post" >
+                        <button type="submit" class="btn btn-danger pull-right"name="generate_report">Generate/Update Report</button>
                             <?php if($customer->customer_status != 0) {?>
 
                             <?php }?>
@@ -129,99 +118,21 @@ if(isset($_POST['save_record'])){
                                 <th>Bottle Qty</th>
                                 <th>Amount Due</th>
                                 <th>Amount Paid</th>
-                                <th>Balance</th>
                                 <th>Payment Status</th>
                                 <th>Actions</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <?php  $customer_monthly_bill = Monthly_Billing::find_by_id($customer->customer_id);
-                                   foreach ($customer_monthly_bill as $billing_record){ ?>
-                                       <tr>
-                                        <td><?php echo $billing_record->billing_monthly_month ?></td>
-                                       <td><?php echo $billing_record->billing_monthly_visits ?></td>
-                                       <td><?php echo $billing_record->billing_monthly_bottle_qty ?></td>
-                                       <td><?php echo $billing_record->billing_monthly_amount_due ?></td>
-                                       <td><?php echo $billing_record->billing_monthly_amount_paid ?></td>
-                                           <td><?php echo $billing_record->billing_monthly_amount_balance ?></td>
-                                       <td>
-                                           <?php
-                                           if ($billing_record->billing_monthly_collection_status == "Unpaid"):
-                                               echo "<span class=\"text-danger\">Unpaid</span>";
-                                           else:
-                                               echo "<span class=\"text-success\">Paid</span>";
-                                           endif;?>
-
-                                          </td>
-
-                                       <td><?php
-                                           if(isset($_POST['monthly_payable'])){
-                                                if($billing_record->billing_monthly_id == $_POST['billing_monthly_id']){
-                                                    $billing_record->billing_monthly_collection_status =  "Paid";
-                                                    $billing_record->billing_monthly_amount_paid = $_POST['billing_monthly_amount_paid'];
-                                                    $billing_record->id = $_POST['billing_monthly_id'];
-                                                    if(isset($_POST['previous_balance'])):
-                                                        $billing_record->billing_monthly_amount_balance = ($customer->customer_balance + $billing_record->billing_monthly_amount_due)  - $billing_record->billing_monthly_amount_paid;
-
-                                                    endif;
-                                                    $billing_record->update();
-                                                    $customer->id = $customer->customer_id;
-                                                    $customer->customer_balance = $billing_record->billing_monthly_amount_balance;
-                                                    $customer->update();
+                            <?php
+                            $new_month = new Billing();
+                            global $database;
+                            //                        $new = $database->query('SELECT COUNT(\'billing_month\') AS month_count  FROM billing WHERE customer_id = 26');
+                            //                            $new = $database->query("SELECT count(billing_date) as TRecords
+                            //  FROM billing WHERE customer_id = 26 AND DATE_FORMAT(billing_date, '%Y-%m') >= '2015-01';");
+                            $new_max = Billing::monthly_record($customer->customer_id);
 
 
-                                                }
-
-
-                                           }
-
-                                           ?>
-                                           <button type="button" class="btn btn-xs btn-success" data-toggle="modal" data-target=".bs-paid-<?php echo $billing_record->billing_monthly_month?>-modal-lg"
-                                           <?php echo  ($billing_record->billing_monthly_collection_status == "Paid")? 'Disabled': '' ; ?> >Pay Amount</button></td>
-                                           <div class="modal fade bs-paid-<?php echo $billing_record->billing_monthly_month ?>-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
-                                               <div class="modal-dialog modal-lg">
-                                                   <form action="view-monthly-customer.php?view=<?php echo $_GET['view']?>" method="post" class="form-horizontal form-label-left" _lpchecked="1">
-                                                       <div class="modal-content">
-                                                           <div class="modal-header">
-                                                               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
-                                                               </button>
-                                                               <h4 class="modal-title" id="myModalLabel2">Payment for <?php echo $billing_record->billing_monthly_month ?></h4>
-                                                           </div>
-                                                           <div class="modal-body">
-                                                               <h4>New Pay Amount</h4>
-
-                                                               <div class="col-sm-6 ">
-                                                                   <div class="form-group">
-                                                                       <label>Amount to be Paid:</label>
-                                                                       <input type="number" class="form-control" name="billing_monthly_amount_paid" placeholder="Amount To be Paid" value="<?php echo $billing_record->billing_monthly_amount_due ?>">
-                                                                       <input type="hidden" class="form-control" name="billing_monthly_id" placeholder="Amount To be Paid" value="<?php echo $billing_record->billing_monthly_id; ?>">
-                                                                       <input type="hidden" class="form-control" name="billing_monthly_amount_balance" placeholder="Amount To be Paid" value="<?php echo $billing_record->billing_monthly_amount_balance ?>">
-                                                                       <button type="submit" name="monthly_payable" class="btn btn-sm btn-success">Amount Paid</button>
-                                                                   </div>
-                                                               </div>
-                                                               <div class="col-sm-6">
-
-
-                                                                   <label>Previous Balance</label>
-                                                                   <input type="checkbox" id="previous_balance" name="previous_balance" value="1" onchange="update_value(this)">
-
-                                                                   <br>
-                                                                   <small>if checked previous balance will be added to total</small>
-                                                               </div>
-
-                                                           </div>
-                                                           <div class="modal-footer">
-
-                                                           </div>
-                                                       </div>
-
-                                               </div>
-                                               </form>
-                                           </div>
-
-                                       </tr>
-                                     <?php } ?>
-
+                            ?>
                             </tbody>
                         </table>
                         <div class="clearfix"></div>
@@ -254,7 +165,7 @@ if(isset($_POST['save_record'])){
                                             <hr/>
 
 
-                                            <div class="col-sm-6">
+                                            <div class="col-sm-6    ">
                                                 <div class="form-group">
                                                     <label>Billing Date</label>
                                                     <input type="date" class="form-control" name="billing_date" placeholder="Current Date" value="<?php echo $today_date ?>">
@@ -280,10 +191,14 @@ if(isset($_POST['save_record'])){
                                             <div class="col-sm-6 pull-right">
                                                 <h4>Billing Total</h4>
                                                 <div class="table-responsive">
-
+                                                    <table class="table">
+                                                        <tbody id="test">
+                                                        </tbody>
+                                                    </table>
                                                     <input type="hidden" class="form-control" name="customer_id" value="<?php echo $_GET['view']?>">
                                                     <div class="form-group">
-                                                        <input type="text" id="paid" class="form-control hide" placeholder="Amount Paid" name="billing_amount_paid" value="0" required>
+                                                        <label>Amount Payable</label>
+                                                        <input type="text" id="paid" class="form-control" placeholder="Amount Paid" name="billing_amount_paid" required>
                                                         <input type="hidden" class="form-control" name="billing_amount_balance" value="0">
                                                     </div>
                                                 </div>
@@ -313,6 +228,7 @@ if(isset($_POST['save_record'])){
                                 <th>Date</th>
                                 <th>Bottle Qty</th>
                                 <th>Bottle Rate</th>
+                                <th>Previous Balance</th>
                                 <th>Amount Due</th>
                                 <th>Amount Paid</th>
                                 <th>New Balance</th>
@@ -330,6 +246,7 @@ if(isset($_POST['save_record'])){
                                     <td><?php echo $record->billing_date;?></td>
                                     <td><?php echo $record->billing_bottle_qty;?></td>
                                     <td>Rs. <?php echo $record->billing_bottle_rate ?></td>
+                                    <td>Rs.<?php echo $record->customer_balance ?></td>
                                     <td>Rs.<?php echo $record->billing_amount_due ?></td>
                                     <td>Rs.<?php echo $record->billing_amount_paid ?></td>
                                     <td>Rs.<?php echo $record->billing_amount_balance ?></td>
