@@ -112,6 +112,7 @@
       </column>
       <column id="45" parent="20" name="billing_monthly_collection_status">
         <data-type>varchar(255)|0</data-type>
+        <default-expression>&apos;Unpaid&apos;</default-expression>
       </column>
       <column id="46" parent="20" name="billing_monthly_amount_balance">
         <data-type>float(8,2)|0</data-type>
@@ -125,67 +126,70 @@
       <column id="49" parent="20" name="billing_monthly_bottle_qty">
         <data-type>int(11)|0</data-type>
       </column>
-      <index id="50" parent="20" name="billing_monthly_customers_customer_id_fk">
+      <column id="50" parent="20" name="billing_monthly_visits">
+        <data-type>int(11)|0</data-type>
+      </column>
+      <index id="51" parent="20" name="billing_monthly_customers_customer_id_fk">
         <columns>customer_id</columns>
         <desc-columns></desc-columns>
       </index>
-      <key id="51" parent="20" name="PRIMARY">
+      <key id="52" parent="20" name="PRIMARY">
         <columns>billing_monthly_id</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="52" parent="20" name="billing_monthly_customers_customer_id_fk">
+      <foreign-key id="53" parent="20" name="billing_monthly_customers_customer_id_fk">
         <columns>customer_id</columns>
         <ref-key>~.customers.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="53" parent="21" name="customer_id">
+      <column id="54" parent="21" name="customer_id">
         <mandatory>1</mandatory>
         <data-type>int(11)|0</data-type>
         <sequence-identity>1</sequence-identity>
       </column>
-      <column id="54" parent="21" name="customer_username">
+      <column id="55" parent="21" name="customer_username">
         <data-type>varchar(255)|0</data-type>
       </column>
-      <column id="55" parent="21" name="customer_password">
+      <column id="56" parent="21" name="customer_password">
         <data-type>varchar(255)|0</data-type>
       </column>
-      <column id="56" parent="21" name="customer_name">
+      <column id="57" parent="21" name="customer_name">
         <data-type>varchar(255)|0</data-type>
       </column>
-      <column id="57" parent="21" name="customer_address">
+      <column id="58" parent="21" name="customer_address">
         <data-type>text|0</data-type>
       </column>
-      <column id="58" parent="21" name="customer_email">
+      <column id="59" parent="21" name="customer_email">
         <data-type>varchar(255)|0</data-type>
       </column>
-      <column id="59" parent="21" name="customer_phone">
+      <column id="60" parent="21" name="customer_phone">
         <data-type>int(11)|0</data-type>
       </column>
-      <column id="60" parent="21" name="customer_join_date">
+      <column id="61" parent="21" name="customer_join_date">
         <data-type>date|0</data-type>
       </column>
-      <column id="61" parent="21" name="customer_status">
+      <column id="62" parent="21" name="customer_status">
         <data-type>int(11)|0</data-type>
         <default-expression>&apos;0&apos;</default-expression>
       </column>
-      <column id="62" parent="21" name="customer_payment_type">
+      <column id="63" parent="21" name="customer_payment_type">
         <data-type>varchar(255)|0</data-type>
       </column>
-      <column id="63" parent="21" name="customer_bottle_qty">
+      <column id="64" parent="21" name="customer_bottle_qty">
         <data-type>int(11)|0</data-type>
         <default-expression>&apos;1&apos;</default-expression>
       </column>
-      <column id="64" parent="21" name="customer_bottle_rate">
+      <column id="65" parent="21" name="customer_bottle_rate">
         <data-type>float(8,2)|0</data-type>
       </column>
-      <column id="65" parent="21" name="customer_advance">
+      <column id="66" parent="21" name="customer_advance">
         <data-type>float(8,2)|0</data-type>
       </column>
-      <column id="66" parent="21" name="customer_balance">
+      <column id="67" parent="21" name="customer_balance">
         <data-type>float(8,2)|0</data-type>
       </column>
-      <key id="67" parent="21" name="PRIMARY">
+      <key id="68" parent="21" name="PRIMARY">
         <columns>customer_id</columns>
         <primary>1</primary>
       </key>

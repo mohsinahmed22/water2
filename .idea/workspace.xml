@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c2e9199b-a29f-43a8-9fc2-7e518f1c324a" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin_ops/lib/Monthly_Billing.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin_ops/db/init.php" afterPath="$PROJECT_DIR$/admin_ops/db/init.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin_ops/lib/Billing.php" afterPath="$PROJECT_DIR$/admin_ops/lib/Billing.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin_ops/lib/DbObject.php" afterPath="$PROJECT_DIR$/admin_ops/lib/DbObject.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin_ops/view-monthly-customer.php" afterPath="$PROJECT_DIR$/admin_ops/view-monthly-customer.php" />
     </list>
     <ignored path="water.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,34 +42,6 @@
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
     </PATH>
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="MySQL - water_db@localhost" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="billing_monthly" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-    </PATH>
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="MySQL - water_db@localhost" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="billing" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-    </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -71,53 +49,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="view-customer.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin_ops/view-customer.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="view-monthly-customer.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="view-monthly-customer.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/admin_ops/view-monthly-customer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="120" column="46" selection-start-line="120" selection-start-column="46" selection-end-line="120" selection-end-column="46" />
+            <state relative-caret-position="872">
+              <caret line="173" column="0" selection-start-line="173" selection-start-column="0" selection-end-line="173" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ajax_test.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ajax/ajax_test.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1564">
-              <caret line="92" column="29" selection-start-line="92" selection-start-column="29" selection-end-line="92" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Billing.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/admin_ops/lib/Billing.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="83" column="26" selection-start-line="83" selection-start-column="26" selection-end-line="83" selection-end-column="26" />
-              <folding>
-                <marker date="1523364016931" expanded="true" signature="1415:1484" ph="SELECT * FRO... ${static::$db_table}" />
-                <marker date="1523364016931" expanded="true" signature="1659:1702" ph="SELECT SUM(b... billing" />
-                <marker date="1523364016931" expanded="true" signature="1659:1722" ph="SELECT sum(b... billingwhere" />
-                <marker date="1523364016931" expanded="true" signature="1659:1733" ph="SELECT sum(b... billing" />
-                <marker date="1523364016931" expanded="true" signature="1659:1794" ph="SELECT sum(b... billing" />
-                <marker date="1523364016931" expanded="true" signature="1659:1801" ph="SELECT sum(b... billing" />
-                <marker date="1523364016931" expanded="true" signature="1659:1802" ph="SELECT sum(b... billing" />
-                <marker date="1523364016931" expanded="true" signature="2045:2174" ph="SELECT count... " />
-                <marker date="1523364016931" expanded="true" signature="2390:2433" ph="select * fro... billing" />
-                <marker date="1523364016931" expanded="true" signature="3845:3947" ph="..." />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -137,8 +74,18 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="water_db.admin_users" pinned="false" current-in-tab="false">
-        <entry file="dbDummy://dbtable:/5bab7d23/71288ddb-f771-46d2-859f-03e3b8531ae2/water_db.admin_users">
+      <file leaf-file-name="view-monthly-customer.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/view-monthly-customer.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1535">
+              <caret line="119" column="24" selection-start-line="119" selection-start-column="24" selection-end-line="119" selection-end-column="61" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="water_db.billing_monthly" pinned="false" current-in-tab="false">
+        <entry file="dbDummy://dbtable:/5bab7d23/71288ddb-f771-46d2-859f-03e3b8531ae2/water_db.billing_monthly">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state>
               <filtering enabled="true" />
@@ -167,34 +114,46 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Session.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin_ops/lib/Session.php">
+      <file leaf-file-name="Billing.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin_ops/lib/Billing.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+            <state relative-caret-position="731">
+              <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
               <folding>
-                <element signature="e#6#88#0#PHP" expanded="true" />
+                <marker date="1523434483948" expanded="true" signature="1415:1484" ph="SELECT * FRO... ${static::$db_table}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin_ops/test.php">
+      <file leaf-file-name="Monthly_Billing.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin_ops/lib/Monthly_Billing.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
-              <folding />
+            <state relative-caret-position="167">
+              <caret line="85" column="8" selection-start-line="85" selection-start-column="8" selection-end-line="85" selection-end-column="8" />
+              <folding>
+                <marker date="1523530195638" expanded="true" signature="1100:1235" ph="SELECT sum($... " />
+                <marker date="1523530195638" expanded="true" signature="1486:1615" ph="SELECT count... billing" />
+                <marker date="1523530195638" expanded="true" signature="1831:1840" ph="Select * fro... " />
+                <marker date="1523530195638" expanded="true" signature="1831:1845" ph="Select * fro... ${$this}" />
+                <marker date="1523530195638" expanded="true" signature="1831:1872" ph="Select * fro... ${static::$db_table}" />
+                <marker date="1523530195638" expanded="true" signature="2323:2366" ph="select * fro... billing" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/gentelella-master/production/login.html">
+      <file leaf-file-name="DbObject.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin_ops/lib/DbObject.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
-              <folding />
+            <state relative-caret-position="1343">
+              <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+              <folding>
+                <marker date="1523441741742" expanded="true" signature="191:205" ph="SELECT * FRO... ${static::$db_table}" />
+                <marker date="1523441741742" expanded="true" signature="320:389" ph="SELECT * FRO... ${static::$db_table}" />
+                <marker date="1523441741742" expanded="true" signature="1531:1543" ph="INSERT INTO ${static::$db_table}... " />
+                <marker date="1523441741742" expanded="true" signature="2581:2649" ph="DELETE FROM " />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -202,6 +161,11 @@
     </leaf>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="mohsinahmed22 &lt;ahmed.mohsin98@gmail.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
@@ -220,13 +184,15 @@
         <option value="$PROJECT_DIR$/admin_ops/add-customer.php" />
         <option value="$PROJECT_DIR$/admin_ops/customers.php" />
         <option value="$PROJECT_DIR$/admin_ops/edit-customer.php" />
-        <option value="$PROJECT_DIR$/admin_ops/db/init.php" />
-        <option value="$PROJECT_DIR$/admin_ops/lib/DbObject.php" />
         <option value="$PROJECT_DIR$/admin_ops/test.php" />
         <option value="$PROJECT_DIR$/admin_ops/view-customer.php" />
         <option value="$PROJECT_DIR$/admin/includes/functions.php" />
-        <option value="$PROJECT_DIR$/admin_ops/view-monthly-customer.php" />
+        <option value="$PROJECT_DIR$/admin_ops/db/init.php" />
         <option value="$PROJECT_DIR$/admin_ops/lib/Billing.php" />
+        <option value="$PROJECT_DIR$/admin_ops/lib/DbObject.php" />
+        <option value="$PROJECT_DIR$/admin/view-monthly-customer.php" />
+        <option value="$PROJECT_DIR$/admin_ops/lib/Monthly_Billing.php" />
+        <option value="$PROJECT_DIR$/admin_ops/view-monthly-customer.php" />
       </list>
     </option>
   </component>
@@ -287,11 +253,92 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="water" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="water" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="water" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="water" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="water" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin_ops" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="water" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="water" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin_ops" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="water" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="water" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin_ops" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="db" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="water" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="water" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="Scope" />
       <pane id="Scratches" />
-      <pane id="ProjectPane">
-        <subPane />
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -385,7 +432,9 @@
       <workItem from="1523019242708" duration="71000" />
       <workItem from="1523040516047" duration="29691000" />
       <workItem from="1523330561963" duration="281000" />
-      <workItem from="1523346815743" duration="14310000" />
+      <workItem from="1523346815743" duration="15772000" />
+      <workItem from="1523433063028" duration="10121000" />
+      <workItem from="1523518488065" duration="10548000" />
     </task>
     <task id="LOCAL-00002" summary="Customers Lists updated">
       <created>1522940783814</created>
@@ -429,11 +478,18 @@
       <option name="project" value="LOCAL" />
       <updated>1523363873376</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="update of monthly calculation&#10;">
+      <created>1523364055568</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1523364055568</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69463000" />
+    <option name="totallyTimeSpent" value="91594000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -445,20 +501,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1176" extended-state="1" />
+    <editor active="false" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1785174" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14605543" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14765458" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32820514" sideWeight="0.4969743" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12782694" sideWeight="0.5021322" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14072494" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23500492" sideWeight="0.4728145" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21801706" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23500492" sideWeight="0.4728145" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32940018" sideWeight="0.4978678" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -466,9 +520,11 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32940018" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32820514" sideWeight="0.4969743" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32743362" sideWeight="0.4969743" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32820514" sideWeight="0.4969743" order="6" side_tool="false" content_ui="tabs" />
@@ -528,7 +584,8 @@
     <MESSAGE value="View Customer with ajax updates" />
     <MESSAGE value="update of monthly view&#10;" />
     <MESSAGE value="update of monthly calculation&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="update of monthly calculation&#10;" />
+    <MESSAGE value="Finalizing Monthly Section." />
+    <option name="LAST_COMMIT_MESSAGE" value="Finalizing Monthly Section." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -537,27 +594,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/admin/gentelella-master/production/form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7429">
-          <caret line="437" column="28" selection-start-line="437" selection-start-column="28" selection-end-line="437" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/gentelella-master/production/general_elements.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17646">
-          <caret line="1038" column="55" selection-start-line="1038" selection-start-column="55" selection-end-line="1038" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/add-customer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="45" column="5" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/edit-customer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2873">
@@ -600,7 +636,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="dbDummy://dbtable:/5bab7d23/71288ddb-f771-46d2-859f-03e3b8531ae2/water_db.billing_monthly" />
     <entry file="file://$PROJECT_DIR$/admin_ops/db/config.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -663,7 +698,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1309">
           <caret line="77" column="195" selection-start-line="77" selection-start-column="195" selection-end-line="77" selection-end-column="195" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -672,7 +706,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
           <caret line="29" column="34" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -688,7 +721,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="28" column="68" selection-start-line="28" selection-start-column="68" selection-end-line="28" selection-end-column="68" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -709,7 +741,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/admin_ops/view-customer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="1394">
           <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
           <folding />
         </state>
@@ -722,7 +754,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1564">
           <caret line="92" column="29" selection-start-line="92" selection-start-column="29" selection-end-line="92" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -734,18 +765,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/view-monthly-customer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="153" column="80" selection-start-line="153" selection-start-column="58" selection-end-line="153" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_windows/git.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -754,16 +777,7 @@
         <state relative-caret-position="670">
           <caret line="41" column="1" selection-start-line="41" selection-start-column="1" selection-end-line="41" selection-end-column="1" />
           <folding>
-            <marker date="1523364016931" expanded="true" signature="1415:1484" ph="SELECT * FRO... ${static::$db_table}" />
-            <marker date="1523364016931" expanded="true" signature="1659:1702" ph="SELECT SUM(b... billing" />
-            <marker date="1523364016931" expanded="true" signature="1659:1722" ph="SELECT sum(b... billingwhere" />
-            <marker date="1523364016931" expanded="true" signature="1659:1733" ph="SELECT sum(b... billing" />
-            <marker date="1523364016931" expanded="true" signature="1659:1794" ph="SELECT sum(b... billing" />
-            <marker date="1523364016931" expanded="true" signature="1659:1801" ph="SELECT sum(b... billing" />
-            <marker date="1523364016931" expanded="true" signature="1659:1802" ph="SELECT sum(b... billing" />
-            <marker date="1523364016931" expanded="true" signature="2045:2174" ph="SELECT count... " />
-            <marker date="1523364016931" expanded="true" signature="2390:2433" ph="select * fro... billing" />
-            <marker date="1523364016931" expanded="true" signature="3845:3947" ph="..." />
+            <marker date="1523434483948" expanded="true" signature="1415:1484" ph="SELECT * FRO... ${static::$db_table}" />
           </folding>
         </state>
       </provider>
@@ -772,30 +786,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="929">
           <caret line="77" column="195" selection-start-line="77" selection-start-column="195" selection-end-line="77" selection-end-column="195" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin_ops/test.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin_ops/db/init.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin_ops/lib/DbObject.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -803,7 +793,79 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/5bab7d23/71288ddb-f771-46d2-859f-03e3b8531ae2/water_db.customers">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/5bab7d23/71288ddb-f771-46d2-859f-03e3b8531ae2/water_db.customers">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/5bab7d23/71288ddb-f771-46d2-859f-03e3b8531ae2/water_db.billing">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/5bab7d23/71288ddb-f771-46d2-859f-03e3b8531ae2/water_db.billing">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin_ops/lib/Session.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/gentelella-master/production/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin_ops/test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -816,46 +878,27 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin_ops/db/init.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="dbDummy://dbtable:/5bab7d23/71288ddb-f771-46d2-859f-03e3b8531ae2/water_db.customers">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/5bab7d23/71288ddb-f771-46d2-859f-03e3b8531ae2/water_db.customers">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/5bab7d23/71288ddb-f771-46d2-859f-03e3b8531ae2/water_db.customers">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+    <entry file="file://$PROJECT_DIR$/admin_ops/lib/DbObject.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1343">
+          <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+          <folding>
+            <marker date="1523441741742" expanded="true" signature="191:205" ph="SELECT * FRO... ${static::$db_table}" />
+            <marker date="1523441741742" expanded="true" signature="320:389" ph="SELECT * FRO... ${static::$db_table}" />
+            <marker date="1523441741742" expanded="true" signature="1531:1543" ph="INSERT INTO ${static::$db_table}... " />
+            <marker date="1523441741742" expanded="true" signature="2581:2649" ph="DELETE FROM " />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -872,7 +915,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="dbDummy://dbtable:/5bab7d23/71288ddb-f771-46d2-859f-03e3b8531ae2/water_db.billing">
+    <entry file="file://$PROJECT_DIR$/admin/view-monthly-customer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1535">
+          <caret line="119" column="24" selection-start-line="119" selection-start-column="24" selection-end-line="119" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin_ops/lib/Monthly_Billing.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="85" column="8" selection-start-line="85" selection-start-column="8" selection-end-line="85" selection-end-column="8" />
+          <folding>
+            <marker date="1523530195638" expanded="true" signature="1100:1235" ph="SELECT sum($... " />
+            <marker date="1523530195638" expanded="true" signature="1486:1615" ph="SELECT count... billing" />
+            <marker date="1523530195638" expanded="true" signature="1831:1840" ph="Select * fro... " />
+            <marker date="1523530195638" expanded="true" signature="1831:1845" ph="Select * fro... ${$this}" />
+            <marker date="1523530195638" expanded="true" signature="1831:1872" ph="Select * fro... ${static::$db_table}" />
+            <marker date="1523530195638" expanded="true" signature="2323:2366" ph="select * fro... billing" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/5bab7d23/71288ddb-f771-46d2-859f-03e3b8531ae2/water_db.customers">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
@@ -885,7 +951,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="dbDummy://dbtable:/5bab7d23/71288ddb-f771-46d2-859f-03e3b8531ae2/water_db.billing">
+    <entry file="file://$PROJECT_DIR$/admin_ops/lib/Billing.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding>
+            <marker date="1523434483948" expanded="true" signature="1415:1484" ph="SELECT * FRO... ${static::$db_table}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/5bab7d23/71288ddb-f771-46d2-859f-03e3b8531ae2/water_db.billing_monthly">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
@@ -900,28 +976,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/admin_ops/view-monthly-customer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="120" column="46" selection-start-line="120" selection-start-column="46" selection-end-line="120" selection-end-column="46" />
+        <state relative-caret-position="872">
+          <caret line="173" column="0" selection-start-line="173" selection-start-column="0" selection-end-line="173" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin_ops/lib/Billing.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="83" column="26" selection-start-line="83" selection-start-column="26" selection-end-line="83" selection-end-column="26" />
-          <folding>
-            <marker date="1523364016931" expanded="true" signature="1415:1484" ph="SELECT * FRO... ${static::$db_table}" />
-            <marker date="1523364016931" expanded="true" signature="1659:1702" ph="SELECT SUM(b... billing" />
-            <marker date="1523364016931" expanded="true" signature="1659:1722" ph="SELECT sum(b... billingwhere" />
-            <marker date="1523364016931" expanded="true" signature="1659:1733" ph="SELECT sum(b... billing" />
-            <marker date="1523364016931" expanded="true" signature="1659:1794" ph="SELECT sum(b... billing" />
-            <marker date="1523364016931" expanded="true" signature="1659:1801" ph="SELECT sum(b... billing" />
-            <marker date="1523364016931" expanded="true" signature="1659:1802" ph="SELECT sum(b... billing" />
-            <marker date="1523364016931" expanded="true" signature="2045:2174" ph="SELECT count... " />
-            <marker date="1523364016931" expanded="true" signature="2390:2433" ph="select * fro... billing" />
-            <marker date="1523364016931" expanded="true" signature="3845:3947" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
