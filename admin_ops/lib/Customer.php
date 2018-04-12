@@ -40,7 +40,7 @@ class Customer extends DbObject
     public $customer_bottle_rate;
     public $customer_advance;
     public $customer_balance;
-
+//
 
     public static function verify_customer($username, $password){
             global $database;

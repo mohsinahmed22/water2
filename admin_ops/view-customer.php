@@ -55,7 +55,7 @@ if(isset($_POST['save_record'])){
             <div class="col-md-3 col-sm-2 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Personal Information <small>Aqua jal</small></h2>
+                        <h2>Personal Informationa <small>Aqua jal</small></h2>
                         <div class="clearfix"></div>
                     </div>
 

@@ -83,12 +83,12 @@ class Monthly_Billing extends Billing
     public function monthly_record($id){
         $this->customer_id = $id;
         $monthly_detail = self::records_by_month($id);
+//        print_r($monthly_detail);
         $visits = array_column($monthly_detail, 'visits');
         $month = array_column($monthly_detail, 'month');
         $paid = array_column($monthly_detail, 'paid');
         $due = array_column($monthly_detail, 'due');
         $qty = array_column($monthly_detail, 'qty');
-
         for($i=0; $i < count($month); $i++){
             $this->billing_monthly_month = $month[$i];
             $this->billing_monthly_amount_due = $due[$i]['total'];

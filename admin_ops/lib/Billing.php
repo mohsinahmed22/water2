@@ -8,6 +8,7 @@
  */
 class Billing extends DbObject
 {
+    //
     protected static $db_table = "billing";
     protected static $column = "customer_id";
     protected static $db_table_fields  = array(

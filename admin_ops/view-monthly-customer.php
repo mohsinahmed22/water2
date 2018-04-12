@@ -192,7 +192,7 @@ if(isset($_POST['save_record'])){
 
                                                                <div class="col-sm-6 ">
                                                                    <div class="form-group">
-                                                                       <label>Amount to be Paid:</label>
+                                                                       <label>Amount to bee Paid:</label>
                                                                        <input type="number" class="form-control" name="billing_monthly_amount_paid" placeholder="Amount To be Paid" value="<?php echo $billing_record->billing_monthly_amount_due ?>">
                                                                        <input type="hidden" class="form-control" name="billing_monthly_id" placeholder="Amount To be Paid" value="<?php echo $billing_record->billing_monthly_id; ?>">
                                                                        <input type="hidden" class="form-control" name="billing_monthly_amount_balance" placeholder="Amount To be Paid" value="<?php echo $billing_record->billing_monthly_amount_balance ?>">

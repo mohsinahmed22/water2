@@ -70,7 +70,7 @@ class DbObject
             return false;
         }
     }
-
+//
 
     // Update
     public function update(){
