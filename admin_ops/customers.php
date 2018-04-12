@@ -59,6 +59,7 @@ if (isset($_GET['message'])){
                                 <?php  ?>
                                 <tr class="even pointer">
                                     <?php
+                                    //
                                     foreach ($customers as $customer){
                                     ?>
                                     <td class="a-center ">

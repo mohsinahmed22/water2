@@ -19,7 +19,7 @@ class Session {
     public function is_signed_in(){
         return $this->is_signed_in;
     }
-
+//
     private function check_login(){
         if (isset($_SESSION['user_id'])){
 

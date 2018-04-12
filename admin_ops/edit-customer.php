@@ -10,6 +10,8 @@ date_default_timezone_set("Asia/Karachi");
 $today_date = date("Y-m-d");
 $id = $_GET['edit'];
 $customer  = Customer::find_by_id($id);
+
+//
 ?>
 
 

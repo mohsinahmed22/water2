@@ -8,7 +8,9 @@
  */?>
 <?php include "includes/header.php"; ?>
 
-<?php $customer = Customer::find_by_id(1);
+<?php
+//
+$customer = Customer::find_by_id(1);
 
 ?>
 <!-- page content -->

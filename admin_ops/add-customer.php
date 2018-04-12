@@ -12,6 +12,7 @@ $today_date = date("Y-m-d");
 
 ?>
 <?php
+//
  if(isset($_POST['submit'])) {
     $customer = new Customer();
      $customer->customer_join_date = $_POST['customer_join_date'];
