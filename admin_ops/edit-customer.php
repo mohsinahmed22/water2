@@ -69,7 +69,7 @@ $customer  = Customer::find_by_id($id);
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Customer Username <span class="required">*</span></label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                                <input type="text" class="form-control" placeholder="Enter Complete Name" name="customer_username" value="<?php echo $customer->customer_username ?>" required>
+                                <input type="text" class="form-control" placeholder="Customer Username" name="customer_username" value="<?php echo $customer->customer_username ?>" required>
                             </div>
                         </div>
                         <div class="form-group">
@@ -93,26 +93,26 @@ $customer  = Customer::find_by_id($id);
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Customer Name <span class="required">*</span></label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" placeholder="Enter Complete Name" name="customer_name"  value="<?php echo $customer->customer_name ?>"required>
+                                    <input type="text" class="form-control" placeholder="Customer Name" name="customer_name"  value="<?php echo $customer->customer_name ?>"required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Phone Number <span class="required">*</span></label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <input type="tel" class="form-control" placeholder="Phone" name="customer_phone" value="<?php echo $customer->customer_phone ?>" required>
+                                    <input type="tel" class="form-control" placeholder="Customer Phone" name="customer_phone" value="<?php echo $customer->customer_phone ?>" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Email Address <span class="required">*</span></label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <input type="email" class="form-control" placeholder="Enter Email Address" name="customer_email" value="<?php echo $customer->customer_email ?>" required>
+                                    <input type="email" class="form-control" placeholder="Customer Email Address" name="customer_email" value="<?php echo $customer->customer_email ?>" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Address <span class="required">*</span>
                                 </label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <textarea class="form-control" rows="3" placeholder='rows="3"' name="customer_address" required><?php echo $customer->customer_address ?></textarea>
+                                    <textarea class="form-control" rows="3" placeholder='Customer Complete Address' name="customer_address" required><?php echo $customer->customer_address ?></textarea>
                                 </div>
                             </div>
 
@@ -155,7 +155,7 @@ $customer  = Customer::find_by_id($id);
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Previous Balance</label>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Balance</label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
                                 <input type="number" class="form-control" placeholder="" name="customer_balance" value="<?php echo $customer->customer_balance ?>" required>
                             </div>

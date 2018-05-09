@@ -10,21 +10,21 @@ class Customer extends DbObject
 {
     protected static $db_table = "customers";
     protected static $column = "customer_id";
-    protected static $db_table_fields  = array( "customer_id",
-                                                "customer_username",
-                                                "customer_password",
-                                                "customer_name",
-                                                "customer_address",
-                                                "customer_email",
-                                                "customer_phone",
-                                                "customer_join_date",
-                                                "customer_status",
-                                                "customer_payment_type",
-                                                "customer_bottle_qty",
-                                                "customer_bottle_rate",
-                                                "customer_advance",
-                                                "customer_balance"
-                                                 );
+    protected static $db_table_fields = array("customer_id",
+        "customer_username",
+        "customer_password",
+        "customer_name",
+        "customer_address",
+        "customer_email",
+        "customer_phone",
+        "customer_join_date",
+        "customer_status",
+        "customer_payment_type",
+        "customer_bottle_qty",
+        "customer_bottle_rate",
+        "customer_advance",
+        "customer_balance"
+    );
     public $customer_id;
     public $id;
     public $customer_username;
@@ -40,25 +40,20 @@ class Customer extends DbObject
     public $customer_bottle_rate;
     public $customer_advance;
     public $customer_balance;
+
 //
 
-    public static function verify_customer($username, $password){
-            global $database;
-            $query =  "SELECT * FROM customers where ";
-            $query .= "customer_username = '{$username}' and ";
-            $query .= "customer_password = '{$password}'";
-            $found_customer = static::find_query($query);
 
-            return !empty($found_customer)? array_shift($found_customer): false;
+    public static function verify_customer($username, $password)
+    {
+        global $database;
+        $query = "SELECT * FROM customers where ";
+        $query .= "customer_username = '{$username}' and ";
+        $query .= "customer_password = '{$password}'";
+        $found_customer = static::find_query($query);
 
-
+        return !empty($found_customer) ? array_shift($found_customer) : false;
     }
-
-
-
-
-
-
 
 
 }

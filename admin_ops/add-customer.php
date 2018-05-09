@@ -66,13 +66,13 @@ $today_date = date("Y-m-d");
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Customer Username <span class="required">*</span></label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                                <input type="text" class="form-control" placeholder="Enter Complete Name" name="customer_username" required>
+                                <input type="text" class="form-control" placeholder="Customer Username" name="customer_username" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Password</label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                                <input type="password" class="form-control" value="" name="customer_password" required>
+                                <input type="password" class="form-control" value="" name="customer_password">
                             </div>
                         </div>
                     </div>
@@ -90,26 +90,26 @@ $today_date = date("Y-m-d");
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Customer Name <span class="required">*</span></label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" placeholder="Enter Complete Name" name="customer_name" required>
+                                    <input type="text" class="form-control" placeholder="Customer Name" name="customer_name" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Phone Number <span class="required">*</span></label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <input type="tel" class="form-control" placeholder="Phone" name="customer_phone" required>
+                                    <input type="tel" class="form-control" placeholder="Customer Phone" name="customer_phone" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Email Address <span class="required">*</span></label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <input type="email" class="form-control" placeholder="Enter Email Address" name="customer_email" required>
+                                    <input type="email" class="form-control" placeholder="Customer Email Address" name="customer_email" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Address <span class="required">*</span>
                                 </label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
-                                    <textarea class="form-control" rows="3" placeholder='rows="3"' name="customer_address" required></textarea>
+                                    <textarea class="form-control" rows="3" placeholder='Customer Complete Address' name="customer_address" required></textarea>
                                 </div>
                             </div>
 
@@ -136,13 +136,13 @@ $today_date = date("Y-m-d");
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Bottle Qty</label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                                <input type="number" class="form-control" placeholder="Enter Bottle Qty" name="customer_bottle_qty" required>
+                                <input type="number" class="form-control" placeholder="Bottle Qty" name="customer_bottle_qty" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Bottle Rate <span class="required">*</span></label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                                <input type="number" class="form-control" placeholder="Each Rate" name="customer_bottle_rate" required>
+                                <input type="number" class="form-control" placeholder="Bottle Rate Each" name="customer_bottle_rate" required>
                             </div>
                         </div>
                         <div class="form-group">
@@ -152,7 +152,7 @@ $today_date = date("Y-m-d");
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Previous Balance</label>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Balance</label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
                                 <input type="number" class="form-control" placeholder="" name="customer_balance" required>
                             </div>

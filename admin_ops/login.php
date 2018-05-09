@@ -7,7 +7,8 @@
 //
 ob_start();
 ?>
-<?php include('db/init.php'); ?>
+<?php include('db/init.php');
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +19,7 @@ ob_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Gentelella Alela! | </title>
+    <title>Billing Management System | Aqua Jal</title>
 
     <!-- Bootstrap -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
@@ -31,33 +32,36 @@ ob_start();
     <link href="assets/css/custom.css" rel="stylesheet">
 </head>
 <?php
-if (isset($_POST['login'])){
-    $username = trim($_POST['customer_username']);
-    $password = trim($_POST['customer_password']);
+if (isset($_POST['login'])) {
+    $username = trim($_POST['admin_user_username']);
+    $password = trim($_POST['admin_user_password']);
 
-    $user_found  = Customer::verify_customer($username, $password);
-    if($user_found){
-        $session->user_id = $user_found->customer_id;
+    $user_found = Admin::verify_customer($username, $password);
+    if ($user_found) {
+//      $session->user_id = $user_found->customer_id;
+        $session->login($user_found);
+
         header("Location: index.php");
-    }else{
+
+    } else {
         $message = "<div class='alert alert-danger'>Invalid Login. Kindly check username and password.</div>";
     }
-}else{
+} else {
     $message = "";
 
 }
-if (isset($_POST['signup'])){
+if (isset($_POST['signup'])) {
 
     $user = new Customer();
-    $user->customer_payment_type     = $_POST['customer_payment_type'];
+    $user->customer_payment_type = $_POST['customer_payment_type'];
     $user->customer_username = $_POST['customer_username'];
     $user->customer_password = $_POST['customer_password'];
-    $user->customer_name =  $_POST['customer_name'];
+    $user->customer_name = $_POST['customer_name'];
     $user->customer_email = $_POST['customer_email'];
-    $user->customer_phone =  $_POST['customer_phone'];
-    $user->customer_address =  $_POST['customer_address'];
-    $user->customer_bottle_qty =  $_POST['customer_bottle_qty'];
-    if($user->save()){
+    $user->customer_phone = $_POST['customer_phone'];
+    $user->customer_address = $_POST['customer_address'];
+    $user->customer_bottle_qty = $_POST['customer_bottle_qty'];
+    if ($user->save()) {
         $message = "<div class='alert alert-success'>Your Account has been created successfully. Our Representative will contact you soon.</div>";
     }
 }
@@ -71,17 +75,19 @@ if (isset($_POST['signup'])){
     <div class="login_wrapper">
         <div class="animate form login_form">
             <section class="login_content">
-                 <?php echo $message ?>
+                <?php echo $message ?>
                 <form action="" method="post">
                     <h1>Login Form</h1>
                     <div>
-                        <input type="text" class="form-control" placeholder="Username" name="customer_username" required="" />
+                        <input type="text" class="form-control" placeholder="Username" name="admin_user_username"
+                               required=""/>
                     </div>
                     <div>
-                        <input type="password" class="form-control" placeholder="Password" name="customer_password" required="" />
+                        <input type="password" class="form-control" placeholder="Password" name="admin_user_password"
+                               required=""/>
                     </div>
                     <div>
-                        <input type="submit" class="btn btn-default submit" value="Login" name="login" />
+                        <input type="submit" class="btn btn-default submit" value="Login" name="login"/>
                         <a class="reset_pass" href="#">Lost your password?</a>
                     </div>
 
@@ -93,11 +99,11 @@ if (isset($_POST['signup'])){
                         </p>
 
                         <div class="clearfix"></div>
-                        <br />
+                        <br/>
 
                         <div>
                             <h1><i class="fa fa-table"></i> Aqual Jal</h1>
-                            <p>©2017 All Rights Reserved. Aqual Jal.</p>
+                            <p>©2018 All Rights Reserved. Aqual Jal.</p>
                         </div>
                     </div>
                 </form>
@@ -109,26 +115,32 @@ if (isset($_POST['signup'])){
                 <form action="login.php" method="post">
                     <h1>Create Account</h1>
                     <div>
-                        <input type="text" class="form-control" placeholder="Username" name="customer_username" required="" />
+                        <input type="text" class="form-control" placeholder="Username" name="customer_username"
+                               required=""/>
                     </div>
                     <div>
-                        <input type="password" class="form-control" placeholder="Password" required="" name="customer_password" />
+                        <input type="password" class="form-control" placeholder="Password" required=""
+                               name="customer_password"/>
                     </div>
                     <hr>
                     <div>
-                        <input type="text" class="form-control" placeholder="Full Name" name="customer_name" required="" />
+                        <input type="text" class="form-control" placeholder="Full Name" name="customer_name"
+                               required=""/>
                     </div>
                     <div>
-                        <input type="email" class="form-control" placeholder="Email" name="customer_email" required="" />
+                        <input type="email" class="form-control" placeholder="Email" name="customer_email" required=""/>
                     </div>
                     <div>
-                        <input type="text" class="form-control" placeholder="Full Name" name="customer_phone" required="" />
+                        <input type="text" class="form-control" placeholder="Full Name" name="customer_phone"
+                               required=""/>
                     </div>
                     <div>
-                        <textarea cols="10" rows="3" class="form-control" placeholder="Complete Address" name="customer_address" required="" ></textarea>
+                        <textarea cols="10" rows="3" class="form-control" placeholder="Complete Address"
+                                  name="customer_address" required=""></textarea>
                     </div>
                     <div>
-                        <input type="text" class="form-control" placeholder="Bottle Qty" name="customer_bottle_qty" required="" />
+                        <input type="text" class="form-control" placeholder="Bottle Qty" name="customer_bottle_qty"
+                               required=""/>
                     </div>
                     <div>
                         <select class="form-control" name="customer_payment_type">
@@ -137,7 +149,7 @@ if (isset($_POST['signup'])){
                         </select>
                     </div>
                     <div>
-                        <input type="submit" class="btn btn-default submit" value="Request for Sign-up" name="signup" />
+                        <input type="submit" class="btn btn-default submit" value="Request for Sign-up" name="signup"/>
                     </div>
 
                     <div class="clearfix"></div>
@@ -148,10 +160,10 @@ if (isset($_POST['signup'])){
                         </p>
 
                         <div class="clearfix"></div>
-                        <br />
+                        <br/>
 
                         <div>
-                            <h1><i class="fa fa-table"></i>  Aqual Jal</h1>
+                            <h1><i class="fa fa-table"></i> Aqual Jal</h1>
                             <p>©2017 All Rights Reserved. Aqual Jal</p>
                         </div>
                     </div>

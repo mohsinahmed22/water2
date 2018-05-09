@@ -26,7 +26,9 @@ if (isset($_GET['message'])){
         <div class="clearfix"></div>
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
+                <?php if($message != ""){?>
                 <div class="alert alert-success"><?php echo $message;?></div>
+                <?php }?>
                 <div class="x_panel">
                     <div class="x_content">
                         <div class="table-responsive">

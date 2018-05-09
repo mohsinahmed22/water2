@@ -175,9 +175,7 @@ if(isset($_POST['save_record'])){
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                        <p class="text-muted font-13 m-b-30">
-                            The Buttons extension for DataTables provides a common set of options, API methods and styling to display buttons on a page that will interact with a DataTable. The core library provides the based framework upon which plug-ins can built.
-                        </p>
+                        <p class="text-muted font-13 m-b-30"></p>
                         <table id="datatable-buttons" class="table table-striped table-bordered">
                             <thead>
                             <tr>
@@ -197,19 +195,27 @@ if(isset($_POST['save_record'])){
                             <?php
 
                                 $customer_billing = Billing::find_by_id($customer->customer_id);
-                                foreach ($customer_billing as $record){
-                            ?>
-                            <tr>
-                                <td><?php echo $record->billing_amount_payment_type;?></td>
-                                <td><?php echo $record->billing_date;?></td>
-                                <td><?php echo $record->billing_bottle_qty;?></td>
-                                <td>Rs. <?php echo $record->billing_bottle_rate ?></td>
-                                <td>Rs.<?php echo $record->customer_balance ?></td>
-                                <td>Rs.<?php echo $record->billing_amount_due ?></td>
-                                <td>Rs.<?php echo $record->billing_amount_paid ?></td>
-                                <td>Rs.<?php echo $record->billing_amount_balance ?></td>
-                            </tr>
-                            <?php } ?>
+                                if($customer_billing) {
+                                    foreach ($customer_billing as $record) {
+                                        ?>
+                                        <tr>
+                                            <td><?php echo $record->billing_amount_payment_type; ?></td>
+                                            <td><?php echo $record->billing_date; ?></td>
+                                            <td><?php echo $record->billing_bottle_qty; ?></td>
+                                            <td>Rs. <?php echo $record->billing_bottle_rate ?></td>
+                                            <td>Rs.<?php echo $record->customer_balance ?></td>
+                                            <td>Rs.<?php echo $record->billing_amount_due ?></td>
+                                            <td>Rs.<?php echo $record->billing_amount_paid ?></td>
+                                            <td>Rs.<?php echo $record->billing_amount_balance ?></td>
+                                        </tr>
+                                    <?php }
+                                }else{ ?>
+                                    <tr>
+                                        <td colspan="8" class="text-center"><strong>No Result Found</strong></td>
+                                    </tr>
+
+
+                                <?php } ?>
                             </tbody>
                         </table>
                     </div>

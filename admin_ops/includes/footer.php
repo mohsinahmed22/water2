@@ -8,7 +8,7 @@
 <!-- footer content -->
 <footer>
     <div class="pull-right">
-       Aqua Jal by Mohsin Ahmed
+        Aqua Jal by Mohsin Ahmed
     </div>
     <div class="clearfix"></div>
 </footer>

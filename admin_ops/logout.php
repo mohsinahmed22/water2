@@ -7,3 +7,7 @@
  */
 
 
+include('db/init.php');
+
+$session->logout();
+header("Location: login.php");
